@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: football_mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - football_network
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: football_server
+    ports:
+      - "5000:5000"
+    environment:
+      MONGODB_URI: mongodb://admin:password@mongodb:27017/football?authSource=admin
+      NODE_ENV: development
+    depends_on:
+      - mongodb
+    networks:
+      - football_network
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+
+  ai-engine:
+    build:
+      context: ./ai-engine
+      dockerfile: Dockerfile
+    container_name: football_ai_engine
+    ports:
+      - "8000:8000"
+    environment:
+      MONGODB_URI: mongodb://admin:password@mongodb:27017/football?authSource=admin
+      PYTHONUNBUFFERED: 1
+    depends_on:
+      - mongodb
+    networks:
+      - football_network
+    volumes:
+      - ./ai-engine:/app
+      - /app/__pycache__
+
+volumes:
+  mongodb_data:
+
+networks:
+  football_network:
+    driver: bridge
