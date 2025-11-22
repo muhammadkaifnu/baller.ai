@@ -16,29 +16,29 @@ ESPN_LEAGUES = {
     "fra.1": "Ligue 1"
 }
 
-def fetch_match_lineups(match_id, league_id):
+def fetch_match_details(match_id, league_id):
     """
-    Fetch detailed lineup information for a specific match from ESPN API.
+    Fetch detailed match information (lineups and events) from ESPN API.
     
     Args:
         match_id: ESPN match ID
         league_id: ESPN league ID (e.g., 'eng.1')
     
     Returns:
-        dict: Lineups with player details including photos and ratings
+        dict: Dictionary containing 'lineups' and 'events'
     """
     try:
-        # ESPN API endpoint for match summary (includes lineups)
+        # ESPN API endpoint for match summary
         url = f"https://site.api.espn.com/apis/site/v2/sports/soccer/{league_id}/summary?event={match_id}"
         
         response = requests.get(url, timeout=10)
         
         if response.status_code != 200:
-            return {}
+            return {'lineups': {}, 'events': []}
         
         data = response.json()
         
-        # Try to get lineups from boxscore first
+        # --- Extract Lineups ---
         boxscore = data.get('boxscore', {})
         players = boxscore.get('players', [])
         
@@ -91,12 +91,10 @@ def fetch_match_lineups(match_id, league_id):
                 athletes = roster_data.get('roster', [])
                 
                 for athlete_entry in athletes:
-                    # Check if starter (starter status might be in different fields, usually 'starter': true)
                     if not athlete_entry.get('starter', False):
                         continue
                         
                     player_info = athlete_entry.get('athlete', {})
-                    stats = athlete_entry.get('stats', [])
                     rating = None
                     
                     player = {
@@ -108,11 +106,89 @@ def fetch_match_lineups(match_id, league_id):
                     }
                     lineups[team_key].append(player)
         
-        return lineups if (lineups['home'] or lineups['away']) else {}
+        # --- Extract Goal Events ---
+        events = []
+        # ESPN usually puts key events in 'header.events' or 'details'
+        # Let's check 'details' first which often has the timeline
+        details = data.get('header', {}).get('events', [])
+        if not details:
+             # Fallback to keyEvents if available
+             details = data.get('keyEvents', [])
+
+        for event in details:
+            # We only care about goals
+            if 'goal' in event.get('text', '').lower() or event.get('type', {}).get('text') == 'Goal':
+                scorer = ""
+                participants = event.get('participants', [])
+                if participants:
+                    scorer = participants[0].get('athlete', {}).get('displayName', '')
+                
+                if not scorer:
+                    # Try to parse from text if participant not structured
+                    text = event.get('text', '')
+                    if text:
+                        scorer = text.split('(')[0].strip() # Simple heuristic
+                
+                is_penalty = event.get('penaltyKick', False) or '(P)' in event.get('text', '') or 'penalty' in event.get('shortText', '').lower()
+                
+                events.append({
+                    'team_id': event.get('team', {}).get('id'),
+                    'minute': event.get('clock', {}).get('displayValue', ''),
+                    'scorer': scorer,
+                    'type': 'goal',
+                    'is_penalty': is_penalty
+                })
+
+        # --- Extract Match Statistics ---
+        statistics = []
+        try:
+            # Stats are usually in boxscore.teams
+            teams_stats = data.get('boxscore', {}).get('teams', [])
+            if teams_stats and len(teams_stats) >= 2:
+                # Map stats by name/label
+                # We want to create a list of objects: { name: "Possession", home: "50", away: "50" }
+                
+                # Helper to create a dict of stats for a team
+                def get_team_stats_dict(team_entry):
+                    stats_dict = {}
+                    for stat in team_entry.get('statistics', []):
+                        stats_dict[stat.get('name')] = stat.get('displayValue')
+                    return stats_dict
+
+                home_stats_raw = get_team_stats_dict(teams_stats[0])
+                away_stats_raw = get_team_stats_dict(teams_stats[1])
+                
+                # Define stats we care about and their display labels
+                stat_keys = [
+                    ('possessionPct', 'Possession'),
+                    ('totalShots', 'Shots'),
+                    ('shotsOnTarget', 'Shots on Target'),
+                    ('wonCorners', 'Corners'),
+                    ('foulsCommitted', 'Fouls'),
+                    ('yellowCards', 'Yellow Cards'),
+                    ('redCards', 'Red Cards'),
+                    ('saves', 'Saves'),
+                    ('offsides', 'Offsides')
+                ]
+                
+                for key, label in stat_keys:
+                    home_val = home_stats_raw.get(key, '0')
+                    away_val = away_stats_raw.get(key, '0')
+                    
+                    statistics.append({
+                        'name': label,
+                        'home': home_val,
+                        'away': away_val
+                    })
+                    
+        except Exception as e:
+            logger.warning(f"Error extracting stats: {e}")
+
+        return {'lineups': lineups, 'events': events, 'statistics': statistics}
         
     except Exception as e:
-        logger.warning(f"Error fetching lineups for match {match_id}: {e}")
-        return {}
+        logger.warning(f"Error fetching match details for {match_id}: {e}")
+        return {'lineups': {}, 'events': []}
 
 def scrape_fixtures_espn():
     """
@@ -238,81 +314,16 @@ def scrape_fixtures_espn():
                                 # Get venue
                                 venue = competition.get('venue', {}).get('fullName', '')
                                 
-                                # Try to get lineups from boxscore first
-                                boxscore = data.get('boxscore', {})
-                                players = boxscore.get('players', [])
+                                # Fetch detailed match info (lineups & events) if match is live or finished
+                                lineups = {}
+                                match_events = []
+                                statistics = []
                                 
-                                lineups = {
-                                    'home': [],
-                                    'away': []
-                                }
-                                
-                                # If boxscore players found, use them
-                                if players:
-                                    for team_idx, team_key in enumerate(['home', 'away']):
-                                        if team_idx >= len(players):
-                                            continue
-                                            
-                                        team_data = players[team_idx]
-                                        statistics = team_data.get('statistics', [])
-                                        
-                                        # Find starters
-                                        for stat_group in statistics:
-                                            if stat_group.get('name') == 'Starters' or 'starter' in stat_group.get('name', '').lower():
-                                                athletes = stat_group.get('athletes', [])
-                                                
-                                                for athlete in athletes:
-                                                    player_info = athlete.get('athlete', {})
-                                                    stats = athlete.get('stats', [])
-                                                    rating = None
-                                                    
-                                                    # Try to find rating
-                                                    for stat in stats:
-                                                        if isinstance(stat, str) and ('rating' in stat.lower() or 'grade' in stat.lower()):
-                                                            try:
-                                                                rating = float(stat)
-                                                            except:
-                                                                pass
-                                                    
-                                                    player = {
-                                                        'number': player_info.get('jersey', ''),
-                                                        'name': player_info.get('displayName', player_info.get('name', 'Unknown')),
-                                                        'position': player_info.get('position', {}).get('abbreviation', 'N/A'),
-                                                        'photo': player_info.get('headshot', {}).get('href', ''),
-                                                        'rating': rating
-                                                    }
-                                                    lineups[team_key].append(player)
-
-                                # If no boxscore players, try rosters
-                                if not lineups['home'] and not lineups['away']:
-                                    rosters = data.get('rosters', [])
-                                    for roster_data in rosters:
-                                        team_key = 'home' if roster_data.get('homeAway') == 'home' else 'away'
-                                        athletes = roster_data.get('roster', [])
-                                        
-                                        for athlete_entry in athletes:
-                                            # Check if starter (starter status might be in different fields, usually 'starter': true)
-                                            if not athlete_entry.get('starter', False):
-                                                continue
-                                                
-                                            player_info = athlete_entry.get('athlete', {})
-                                            stats = athlete_entry.get('stats', [])
-                                            rating = None
-                                            
-                                            # Try to find rating
-                                            # Note: In rosters, stats might be a list of objects with name/value
-                                            # But based on output, it seems stats is a list of objects
-                                            
-                                            player = {
-                                                'number': player_info.get('jersey', ''),
-                                                'name': player_info.get('displayName', player_info.get('name', 'Unknown')),
-                                                'position': player_info.get('position', {}).get('abbreviation', 'N/A'),
-                                                'photo': player_info.get('headshot', {}).get('href', ''),
-                                                'rating': rating # Ratings might not be available in rosters view easily
-                                            }
-                                            lineups[team_key].append(player)
-                                
-                                lineups = lineups if (lineups['home'] or lineups['away']) else {}
+                                if status in ['live', 'finished']:
+                                    details = fetch_match_details(match_id, league_id)
+                                    lineups = details.get('lineups', {})
+                                    match_events = details.get('events', [])
+                                    statistics = details.get('statistics', [])
                                 
                                 # Get season
                                 season = event.get('season', {}).get('year', '2024')
@@ -322,10 +333,16 @@ def scrape_fixtures_espn():
                                 home_logo = home_team_data.get('team', {}).get('logo', '')
                                 away_logo = away_team_data.get('team', {}).get('logo', '')
                                 
+                                # Team IDs
+                                home_id = home_team_data.get('id')
+                                away_id = away_team_data.get('id')
+                                
                                 fixture = {
                                     "date": match_date,
                                     "home_team": home_team,
                                     "away_team": away_team,
+                                    "home_id": home_id,
+                                    "away_id": away_id,
                                     "home_score": home_score,
                                     "away_score": away_score,
                                     "status": status,
@@ -336,8 +353,8 @@ def scrape_fixtures_espn():
                                     "home_logo": home_logo,
                                     "away_logo": away_logo,
                                     "lineups": lineups,
-                                    "statistics": [],
-                                    "match_events": [],
+                                    "statistics": statistics,
+                                    "match_events": match_events,
                                     "source_id": str(match_id)
                                 }
                                 league_fixtures.append(fixture)

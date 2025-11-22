@@ -31,8 +31,16 @@ export default function Navbar() {
                         <TrendingUp className="w-6 h-6 text-slate-900" />
                     </div>
                     <div>
-                        <h1 className="text-cyan-400 font-bold text-lg leading-none">Football AI</h1>
-                        <p className="text-xs text-slate-500 uppercase tracking-wider">Next Gen Scout</p>
+                        <h1 className="text-cyan-400 font-bold text-lg leading-none">Baller AI</h1>
+                        <p className="text-xs text-slate-500 uppercase tracking-wider">Next Gen</p>
+                    </div>
+                    <div className="relative w-64">
+                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-500" />
+                        <input
+                            type="text"
+                            placeholder="Search matches, players..."
+                            className="w-full bg-slate-800 border border-slate-700 rounded-lg pl-10 pr-4 py-2 text-sm text-slate-300 placeholder-slate-500 focus:outline-none focus:border-cyan-500"
+                        />
                     </div>
                 </div>
 
@@ -46,8 +54,8 @@ export default function Navbar() {
                                 key={item.path}
                                 onClick={() => navigate(item.path)}
                                 className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all ${isActive
-                                        ? 'bg-cyan-500 text-slate-900 font-semibold'
-                                        : 'text-slate-400 hover:text-slate-300 hover:bg-slate-800'
+                                    ? 'bg-cyan-500 text-slate-900 font-semibold'
+                                    : 'text-slate-400 hover:text-slate-300 hover:bg-slate-800'
                                     }`}
                             >
                                 <Icon className="w-4 h-4" />
@@ -61,14 +69,7 @@ export default function Navbar() {
             {/* Right Section - Search, Date, Notifications, User */}
             <div className="flex items-center gap-6">
                 {/* Search Bar */}
-                <div className="relative w-64">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-500" />
-                    <input
-                        type="text"
-                        placeholder="Search matches, players..."
-                        className="w-full bg-slate-800 border border-slate-700 rounded-lg pl-10 pr-4 py-2 text-sm text-slate-300 placeholder-slate-500 focus:outline-none focus:border-cyan-500"
-                    />
-                </div>
+
 
                 {/* Date */}
                 <span className="text-sm text-slate-400 uppercase hidden lg:block">{today}</span>
