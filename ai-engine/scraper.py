@@ -203,13 +203,13 @@ def scrape_fixtures_espn():
         
         all_fixtures = []
         
-        # Generate date range: past 7 days to next 14 days
+        # Generate date range: past 30 days to next 14 days
         from datetime import datetime, timedelta
         today = datetime.utcnow()
         date_range = []
         
-        # Past 7 days
-        for i in range(7, 0, -1):
+        # Past 30 days (increased from 7 to show more historical matches)
+        for i in range(30, 0, -1):
             date = today - timedelta(days=i)
             date_range.append(date.strftime('%Y%m%d'))
         
@@ -221,7 +221,7 @@ def scrape_fixtures_espn():
             date = today + timedelta(days=i)
             date_range.append(date.strftime('%Y%m%d'))
         
-        logger.info(f"📅 Fetching matches for {len(date_range)} dates (past 7 days to next 14 days)")
+        logger.info(f"📅 Fetching matches for {len(date_range)} dates (past 30 days to next 14 days)")
         
         for league_id, league_name in ESPN_LEAGUES.items():
             try:

@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext'
 import { getTeamLogo } from '../utils/teamLogos'
 
 export default function Dashboard() {
-  const { token } = useAuth()
+  const { token, logout } = useAuth()
   const [matches, setMatches] = useState([])
   const [loading, setLoading] = useState(true)
 
@@ -14,6 +14,18 @@ export default function Dashboard() {
         const response = await fetch('http://localhost:5001/api/matches?limit=10', {
           headers: { 'Authorization': `Bearer ${token}` }
         })
+
+        // Handle 401 Unauthorized - token is invalid or expired
+        if (response.status === 401) {
+          console.error('Authentication failed - logging out')
+          logout()
+          return
+        }
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`)
+        }
+
         const data = await response.json()
         setMatches(data.data?.matches || [])
       } catch (error) {
@@ -26,7 +38,7 @@ export default function Dashboard() {
     if (token) {
       fetchMatches()
     }
-  }, [token])
+  }, [token, logout])
 
   const hotPredictions = [
     { icon: '🔥', percentage: 78, title: 'Over 2.5 Goals', match: 'Man City vs Arsenal' },

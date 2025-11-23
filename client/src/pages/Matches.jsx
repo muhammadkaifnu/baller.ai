@@ -13,7 +13,7 @@ export default function Matches() {
   useEffect(() => {
     const fetchMatches = async () => {
       try {
-        const response = await fetch('http://localhost:5001/api/matches?limit=100', {
+        const response = await fetch('http://localhost:5001/api/matches?limit=500', {
           headers: { 'Authorization': `Bearer ${token}` }
         })
         const data = await response.json()
@@ -89,29 +89,52 @@ export default function Matches() {
     matches.forEach(match => {
       dateSet.add(getMatchDate(match.date))
     })
-    return Array.from(dateSet).sort()
+    
+    // Get dates from 7 days ago to 14 days ahead
+    const dates = Array.from(dateSet)
+    const today = new Date()
+    
+    // Add dates even if no matches (for better navigation)
+    for (let i = -7; i <= 14; i++) {
+      const date = new Date(today)
+      date.setDate(date.getDate() + i)
+      const dateStr = date.toISOString().split('T')[0]
+      if (!dates.includes(dateStr)) {
+        dates.push(dateStr)
+      }
+    }
+    
+    return dates.sort()
   }
 
   const allDates = getAllDates()
 
-  // Set default selected date to today or first available date
+  // Set default selected date to today
   useEffect(() => {
     if (allDates.length > 0 && !selectedDate) {
       const today = getTodayDate()
-      if (allDates.includes(today)) {
-        setSelectedDate(today)
-      } else {
-        // Find closest date to today
-        const todayTime = new Date(today).getTime()
-        const closest = allDates.reduce((prev, curr) => {
-          const prevDiff = Math.abs(new Date(prev).getTime() - todayTime)
-          const currDiff = Math.abs(new Date(curr).getTime() - todayTime)
-          return currDiff < prevDiff ? curr : prev
-        })
-        setSelectedDate(closest)
-      }
+      // Always set to today, even if no matches
+      setSelectedDate(today)
     }
   }, [allDates.length])
+
+  // Auto-scroll to center today's tab on initial load
+  useEffect(() => {
+    if (allDates.length > 0 && selectedDate) {
+      const todayElement = document.getElementById(`date-tab-${selectedDate}`)
+      
+      if (todayElement) {
+        // Use setTimeout to ensure DOM is ready
+        setTimeout(() => {
+          todayElement.scrollIntoView({ 
+            behavior: 'auto', 
+            block: 'nearest', 
+            inline: 'center' 
+          })
+        }, 150)
+      }
+    }
+  }, [allDates.length, selectedDate])
 
   // Get matches for selected date
   const getMatchesForDate = (date) => {
@@ -139,27 +162,43 @@ export default function Matches() {
       </div>
 
       {/* Date Tabs - Horizontal Scrollable */}
-      <div className="mb-6 -mx-6 px-6">
-        <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
+      <div className="mb-8 -mx-6 px-6">
+        <div className="flex gap-3 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
           {allDates.map(date => {
             const label = formatDateLabel(date)
             const isToday = date === getTodayDate()
             const isSelected = date === selectedDate
             const matchCount = getMatchesForDate(date).length
+            const dateObj = new Date(date)
+            const dayName = dateObj.toLocaleDateString('en-US', { weekday: 'short' })
+            const dayNum = dateObj.getDate()
 
             return (
               <button
                 key={date}
+                id={`date-tab-${date}`}
                 onClick={() => setSelectedDate(date)}
-                className={`flex flex-col items-center min-w-[100px] px-4 py-3 rounded-lg transition-all whitespace-nowrap ${isSelected
-                  ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/50'
-                  : 'bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-slate-200'
-                  }`}
+                className={`flex flex-col items-center min-w-[90px] px-4 py-3 rounded-xl transition-all whitespace-nowrap snap-center ${
+                  isSelected
+                    ? 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/30 scale-105'
+                    : isToday
+                    ? 'bg-slate-700 text-cyan-400 border border-cyan-500/30'
+                    : 'bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-slate-200'
+                }`}
               >
-                <span className={`text-lg font-bold ${isToday && !isSelected ? 'text-cyan-400' : ''}`}>
-                  {label}
+                <span className={`text-xs font-semibold uppercase tracking-wider mb-1 ${
+                  isSelected ? 'text-white' : isToday ? 'text-cyan-400' : 'text-slate-500'
+                }`}>
+                  {isToday ? 'Today' : label.includes('Yesterday') ? 'Yesterday' : label.includes('Tomorrow') ? 'Tomorrow' : dayName}
                 </span>
-                <span className="text-xs mt-1 opacity-75">
+                <span className={`text-2xl font-bold ${
+                  isSelected ? 'text-white' : isToday ? 'text-cyan-400' : 'text-slate-200'
+                }`}>
+                  {dayNum}
+                </span>
+                <span className={`text-xs mt-1 ${
+                  isSelected ? 'text-cyan-100' : 'text-slate-500'
+                }`}>
                   {matchCount} {matchCount === 1 ? 'match' : 'matches'}
                 </span>
               </button>
@@ -182,35 +221,74 @@ export default function Matches() {
         </div>
       ) : (
         <div className="space-y-8">
-          {/* Group matches by league */}
-          {['Premier League', 'La Liga', 'Serie A', 'Bundesliga', 'Ligue 1'].map(leagueName => {
-            const leagueMatches = displayMatches.filter(m => m.league === leagueName)
+          {/* Group matches by league and prioritize leagues with live matches */}
+          {(() => {
+            const leagues = ['Premier League', 'La Liga', 'Serie A', 'Bundesliga', 'Ligue 1']
+            
+            // Create league data with live match count
+            const leagueData = leagues.map(leagueName => {
+              const leagueMatches = displayMatches.filter(m => m.league === leagueName)
+              const liveCount = leagueMatches.filter(m => m.status === 'live').length
+              
+              return {
+                name: leagueName,
+                matches: leagueMatches,
+                liveCount
+              }
+            }).filter(league => league.matches.length > 0)
+            
+            // Sort leagues: leagues with live matches first, then by name
+            leagueData.sort((a, b) => {
+              if (a.liveCount > 0 && b.liveCount === 0) return -1
+              if (a.liveCount === 0 && b.liveCount > 0) return 1
+              if (a.liveCount !== b.liveCount) return b.liveCount - a.liveCount
+              return 0
+            })
+            
+            return leagueData.map(league => {
+              // Sort matches within league: live first, then finished, then scheduled
+              const sortedMatches = [...league.matches].sort((a, b) => {
+                const statusOrder = { 'live': 0, 'finished': 1, 'scheduled': 2 }
+                const aOrder = statusOrder[a.status] ?? 3
+                const bOrder = statusOrder[b.status] ?? 3
+                
+                if (aOrder !== bOrder) return aOrder - bOrder
+                
+                // Within same status, sort by time
+                return new Date(a.date) - new Date(b.date)
+              })
+              
+              const hasLive = league.liveCount > 0
 
-            if (leagueMatches.length === 0) return null
+              return (
+                <div key={league.name} className="space-y-4">
+                  {/* League Header */}
+                  <div className="flex items-center gap-3 mb-4">
+                    <h3 className="text-2xl font-bold text-white">{league.name}</h3>
+                    {hasLive && (
+                      <span className="flex items-center gap-1 px-3 py-1 bg-red-500 text-white text-xs font-bold rounded-full animate-pulse">
+                        ● {league.liveCount} LIVE
+                      </span>
+                    )}
+                    <span className="px-3 py-1 bg-slate-800 text-slate-400 text-xs font-semibold rounded-full">
+                      {league.matches.length} {league.matches.length === 1 ? 'match' : 'matches'}
+                    </span>
+                  </div>
 
-            return (
-              <div key={leagueName} className="space-y-4">
-                {/* League Header */}
-                <div className="flex items-center gap-3 mb-4">
-                  <h3 className="text-2xl font-bold text-white">{leagueName}</h3>
-                  <span className="px-3 py-1 bg-slate-800 text-slate-400 text-xs font-semibold rounded-full">
-                    {leagueMatches.length} {leagueMatches.length === 1 ? 'match' : 'matches'}
-                  </span>
+                  {/* League Matches Grid */}
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    {sortedMatches.map((match, idx) => (
+                      <MatchCard
+                        key={idx}
+                        match={match}
+                        onClick={() => setSelectedMatch(match)}
+                      />
+                    ))}
+                  </div>
                 </div>
-
-                {/* League Matches Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                  {leagueMatches.map((match, idx) => (
-                    <MatchCard
-                      key={idx}
-                      match={match}
-                      onClick={() => setSelectedMatch(match)}
-                    />
-                  ))}
-                </div>
-              </div>
-            )
-          })}
+              )
+            })
+          })()}
         </div>
       )}
 
@@ -255,9 +333,15 @@ function MatchCard({ match, onClick }) {
   // Only show scores for live and finished matches
   const showScore = match.status === 'finished' || match.status === 'live'
 
+  const isLive = match.status === 'live'
+
   return (
     <div
-      className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-5 hover:border-cyan-500/50 hover:bg-slate-800 transition-all cursor-pointer backdrop-blur-sm"
+      className={`bg-slate-800/50 border rounded-xl p-5 hover:bg-slate-800 transition-all cursor-pointer backdrop-blur-sm ${
+        isLive 
+          ? 'border-red-500/50 hover:border-red-500 shadow-lg shadow-red-500/20' 
+          : 'border-slate-700/50 hover:border-cyan-500/50'
+      }`}
       onClick={onClick}
     >
       {/* Header with League and Status/Time */}

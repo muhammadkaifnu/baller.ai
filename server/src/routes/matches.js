@@ -7,7 +7,7 @@ const router = express.Router()
 // GET /api/matches - Fetch matches with optional filtering
 router.get('/', authMiddleware, async (req, res) => {
   try {
-    const { status, limit = 50, skip = 0, sort = 'date' } = req.query
+    const { status, limit = 500, skip = 0, sort = 'date' } = req.query
 
     // Build filter query
     const filter = {}

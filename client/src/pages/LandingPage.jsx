@@ -55,7 +55,8 @@ const LandingPage = () => {
           <div className="flex items-center gap-4">
             <Link to="/login" className="text-slate-300 hover:text-white transition font-medium">Sign In</Link>
             <Link
-              to="/register"
+              to="/login"
+              state={{ isSignup: true }}
               className="bg-cyan-500 hover:bg-cyan-400 text-slate-900 px-5 py-2 rounded-full font-bold transition shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:shadow-[0_0_25px_rgba(6,182,212,0.7)]"
             >
               Get Started
@@ -94,7 +95,8 @@ const LandingPage = () => {
 
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                 <Link
-                  to="/register"
+                  to="/login"
+                  state={{ isSignup: true }}
                   className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-bold text-white shadow-lg hover:shadow-cyan-500/25 transition transform hover:-translate-y-1 flex items-center justify-center gap-2"
                 >
                   Start Free Trial <ArrowRight className="w-5 h-5" />
@@ -284,7 +286,8 @@ const LandingPage = () => {
                 Join thousands of football enthusiasts and get access to premium analytics today.
               </p>
               <Link
-                to="/register"
+                to="/login"
+                state={{ isSignup: true }}
                 className="inline-block bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-cyan-50 transition shadow-lg"
               >
                 Create Free Account

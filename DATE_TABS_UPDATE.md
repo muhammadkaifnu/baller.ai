@@ -122,6 +122,21 @@ Each tab shows how many matches are on that date:
 
 ## 🔧 Technical Details
 
+### **Date Range:**
+- **Past 30 days** - Shows historical matches
+- **Today** - Current matches
+- **Next 14 days** - Upcoming fixtures
+- **Total: 45 days** of match data
+
+### **Data Fetching:**
+```javascript
+// Frontend fetches 500 matches
+fetch('http://localhost:5001/api/matches?limit=500')
+
+// Backend scraper gets matches for all dates
+// Past 30 days to next 14 days from ESPN API
+```
+
 ### **Date Formatting Logic:**
 ```javascript
 formatDateLabel(dateString) {
@@ -141,14 +156,9 @@ formatDateLabel(dateString) {
 
 ### **Auto-Selection Logic:**
 ```javascript
-// 1. Try to select today
-if (allDates.includes(today)) {
-  setSelectedDate(today)
-} else {
-  // 2. Select closest date to today
-  const closest = findClosestDate(allDates, today)
-  setSelectedDate(closest)
-}
+// Always select today by default
+const today = getTodayDate()
+setSelectedDate(today)
 ```
 
 ### **Horizontal Scroll:**

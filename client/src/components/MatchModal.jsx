@@ -110,29 +110,49 @@ The AI model predicts a competitive match with ${winner} having the statistical 
 
               {/* Goal Scorers */}
               {(match.status === 'live' || match.status === 'finished') && match.match_events && match.match_events.length > 0 && (
-                <div className="flex justify-between w-full min-w-[300px] mt-6 text-sm text-slate-300">
+                <div className="flex justify-between w-full min-w-[400px] mt-8 gap-6">
                   {/* Home Goals */}
-                  <div className="text-right space-y-1 flex-1 pr-4 border-r border-slate-700/50">
+                  <div className="text-right space-y-2 flex-1">
                     {match.match_events
                       .filter(e => e.type === 'goal' && String(e.team_id) === String(match.home_id))
                       .map((event, idx) => (
-                        <div key={idx}>
-                          {event.scorer} <span className="text-cyan-400 font-mono">{event.minute.replace("'", "")}'</span>
-                          {event.is_penalty && <span className="text-slate-500 ml-1">(P)</span>}
+                        <div key={idx} className="flex items-center justify-end gap-2">
+                          <span className="text-slate-300 font-medium text-sm">
+                            {event.scorer}
+                          </span>
+                          <span className="text-cyan-400 font-bold text-sm font-mono bg-cyan-500/10 px-2 py-0.5 rounded">
+                            {event.minute.replace("'", "")}'
+                          </span>
+                          {event.is_penalty && (
+                            <span className="text-xs text-slate-500 font-semibold">(P)</span>
+                          )}
                         </div>
                       ))}
+                    {match.match_events.filter(e => e.type === 'goal' && String(e.team_id) === String(match.home_id)).length === 0 && (
+                      <div className="text-slate-600 text-xs italic">No goals</div>
+                    )}
                   </div>
 
                   {/* Away Goals */}
-                  <div className="text-left space-y-1 flex-1 pl-4">
+                  <div className="text-left space-y-2 flex-1">
                     {match.match_events
                       .filter(e => e.type === 'goal' && String(e.team_id) === String(match.away_id))
                       .map((event, idx) => (
-                        <div key={idx}>
-                          <span className="text-purple-400 font-mono">{event.minute.replace("'", "")}'</span> {event.scorer}
-                          {event.is_penalty && <span className="text-slate-500 ml-1">(P)</span>}
+                        <div key={idx} className="flex items-center gap-2">
+                          <span className="text-purple-400 font-bold text-sm font-mono bg-purple-500/10 px-2 py-0.5 rounded">
+                            {event.minute.replace("'", "")}'
+                          </span>
+                          <span className="text-slate-300 font-medium text-sm">
+                            {event.scorer}
+                          </span>
+                          {event.is_penalty && (
+                            <span className="text-xs text-slate-500 font-semibold">(P)</span>
+                          )}
                         </div>
                       ))}
+                    {match.match_events.filter(e => e.type === 'goal' && String(e.team_id) === String(match.away_id)).length === 0 && (
+                      <div className="text-slate-600 text-xs italic">No goals</div>
+                    )}
                   </div>
                 </div>
               )}
@@ -140,12 +160,13 @@ The AI model predicts a competitive match with ${winner} having the statistical 
 
             {/* Away Team */}
             <div className="flex flex-col items-center flex-1">
-              <div className="w-24 h-24 bg-slate-800 rounded-full p-4 mb-4 shadow-lg shadow-purple-500/10 border border-slate-700 relative group">
-
-                <img src={match.away_logo || getTeamLogo(match.away_team)} alt={match.away_team} className="w-full h-full object-contain relative z-10"
-                  onError={(e) => { e.target.src = getTeamLogo(match.away_team) }} />
-              </div>
-              <h2 className="text-2xl font-bold text-white text-center">{match.away_team}</h2>
+              <img
+                src={match.away_logo || getTeamLogo(match.away_team)}
+                alt={match.away_team}
+                className="w-24 h-24 object-contain mb-3"
+                onError={(e) => { e.target.src = getTeamLogo(match.away_team) }}
+              />
+              <h3 className="text-xl font-bold text-white text-center">{match.away_team}</h3>
               <p className="text-slate-400 text-sm">Away</p>
             </div>
           </div>
