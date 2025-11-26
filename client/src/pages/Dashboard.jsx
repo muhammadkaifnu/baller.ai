@@ -47,38 +47,178 @@ export default function Dashboard() {
     { icon: '🔥', percentage: 71, title: 'Under 3.5', match: 'Bayern vs Dortmund' },
   ]
 
-  const stats = [
-    { icon: TrendingUp, label: 'Total Predictions', value: '168', change: '+12', color: 'cyan' },
-    { icon: Trophy, label: 'Accuracy Rate', value: '85%', change: '+3%', color: 'green' },
-    { icon: Users, label: 'Active Leagues', value: '8', change: '+2', color: 'purple' }
+  const topScorers = [
+    { league: 'Premier League', player: 'Erling Haaland', team: 'Manchester City', goals: 18, image: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p223094.png' },
+    { league: 'La Liga', player: 'Jude Bellingham', team: 'Real Madrid', goals: 14, image: 'https://b.fssta.com/uploads/application/soccer/headshots/71310.vresize.350.350.medium.14.png' },
+    { league: 'Bundesliga', player: 'Harry Kane', team: 'Bayern Munich', goals: 22, image: 'https://b.fssta.com/uploads/application/soccer/headshots/3960.vresize.350.350.medium.14.png' },
+    { league: 'Serie A', player: 'Lautaro Martínez', team: 'Inter Milan', goals: 16, image: 'https://b.fssta.com/uploads/application/soccer/headshots/43089.vresize.350.350.medium.14.png' },
+    { league: 'Ligue 1', player: 'Jonathan David', team: 'Lille', goals: 19, image: 'https://b.fssta.com/uploads/application/soccer/headshots/52084.vresize.350.350.medium.14.png' },
+  ]
+
+  const topAssisters = [
+    { league: 'Premier League', player: 'Mohamed Salah', team: 'Liverpool', assists: 8, image: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p118748.png' },
+    { league: 'La Liga', player: 'Lamine Yamal', team: 'Barcelona', assists: 9, image: 'https://b.fssta.com/uploads/application/soccer/headshots/118223.vresize.350.350.medium.14.png' },
+    { league: 'Bundesliga', player: 'Leroy Sané', team: 'Bayern Munich', assists: 10, image: 'https://b.fssta.com/uploads/application/soccer/headshots/2271.vresize.350.350.medium.14.png' },
+    { league: 'Serie A', player: 'Marcus Thuram', team: 'Inter Milan', assists: 9, image: 'https://b.fssta.com/uploads/application/soccer/headshots/45788.vresize.350.350.medium.14.png' },
+    { league: 'Ligue 1', player: 'Ousmane Dembélé', team: 'Paris Saint-Germain', assists: 8, image: 'https://b.fssta.com/uploads/application/soccer/headshots/33404.vresize.350.350.medium.14.png' },
+  ]
+
+  const seasonPredictions = [
+    { title: 'Golden Boot', player: 'Erling Haaland', probability: '85%', subtitle: 'Record breaking pace' },
+    { title: "Ballon d'Or", player: 'Jude Bellingham', probability: '65%', subtitle: 'Leading the race' },
+    { title: 'UCL Winner', player: 'Man City', probability: '45%', subtitle: 'Back to back?' },
+    { title: 'Euro 2024', player: 'France', probability: '32%', subtitle: 'Favorites' },
   ]
 
   return (
     <div className="pb-8 px-8">
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-cyan-400 mb-1">Dashboard</h1>
-        <p className="text-slate-400 text-sm">AI-powered football analytics and predictions</p>
+      {/* Top Goal Scorers */}
+      <div className="mb-6">
+        <h2 className="text-sm font-bold text-white mb-3 uppercase tracking-wider flex items-center gap-2">
+          <Trophy className="w-4 h-4 text-yellow-500" />
+          Top Goal Scorers
+        </h2>
+        <div className="grid grid-cols-5 gap-3">
+          {topScorers.map((scorer, idx) => (
+            <div key={idx} className="group relative bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-slate-700/50 rounded-lg p-3 hover:border-yellow-500/50 hover:shadow-lg hover:shadow-yellow-500/10 transition-all duration-300 cursor-pointer overflow-hidden">
+              {/* Background Team Logo */}
+              <div className="absolute -top-2 -right-2 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
+                <img src={getTeamLogo(scorer.team)} alt={scorer.team} className="w-16 h-16 object-contain rotate-12" />
+              </div>
+
+              {/* Player Image */}
+              <div className="relative mb-2 w-14 h-14 mx-auto rounded-full overflow-hidden border-2 border-slate-700/50 group-hover:border-yellow-500/50 transition-all duration-300 shadow-md">
+                <img
+                  src={scorer.image}
+                  alt={scorer.player}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  onError={(e) => { e.target.src = getTeamLogo(scorer.team) }}
+                />
+              </div>
+
+              {/* Player Info */}
+              <h3 className="text-white font-semibold text-xs truncate text-center mb-0.5">{scorer.player}</h3>
+              <p className="text-slate-400 text-[10px] text-center mb-2 truncate">{scorer.team}</p>
+
+              {/* Goals Badge */}
+              <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-500/30 rounded-md px-2 py-1 text-center">
+                <span className="text-yellow-400 font-bold text-xs">{scorer.goals}</span>
+                <span className="text-yellow-500/70 text-[10px] ml-1">Goals</span>
+              </div>
+
+              {/* League Tag */}
+              <div className="mt-2 text-center">
+                <span className="text-slate-500 text-[9px] uppercase tracking-wider">{scorer.league}</span>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* Stats Grid */}
-      <div className="grid grid-cols-3 gap-6 mb-8">
-        {stats.map((stat, idx) => {
-          const Icon = stat.icon
-          const borderColor = stat.color === 'cyan' ? 'border-cyan-500' : stat.color === 'green' ? 'border-green-500' : 'border-purple-500'
-          const textColor = stat.color === 'cyan' ? 'text-cyan-400' : stat.color === 'green' ? 'text-green-400' : 'text-purple-400'
-
-          return (
-            <div key={idx} className={`bg-slate-800 border ${borderColor} border-opacity-30 rounded-xl p-6`}>
-              <div className="flex items-start justify-between mb-4">
-                <Icon className={`w-6 h-6 ${textColor}`} />
-                <span className={`text-xs font-semibold ${textColor}`}>{stat.change}</span>
+      {/* Top Assisters */}
+      <div className="mb-6">
+        <h2 className="text-sm font-bold text-white mb-3 uppercase tracking-wider flex items-center gap-2">
+          <Users className="w-4 h-4 text-cyan-500" />
+          Top Assisters
+        </h2>
+        <div className="grid grid-cols-5 gap-3">
+          {topAssisters.map((player, idx) => (
+            <div key={idx} className="group relative bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-slate-700/50 rounded-lg p-3 hover:border-cyan-500/50 hover:shadow-lg hover:shadow-cyan-500/10 transition-all duration-300 cursor-pointer overflow-hidden">
+              {/* Background Team Logo */}
+              <div className="absolute -top-2 -right-2 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
+                <img src={getTeamLogo(player.team)} alt={player.team} className="w-16 h-16 object-contain rotate-12" />
               </div>
-              <p className="text-3xl font-bold text-white mb-1">{stat.value}</p>
-              <p className="text-slate-400 text-xs uppercase">{stat.label}</p>
+
+              {/* Player Image */}
+              <div className="relative mb-2 w-14 h-14 mx-auto rounded-full overflow-hidden border-2 border-slate-700/50 group-hover:border-cyan-500/50 transition-all duration-300 shadow-md">
+                <img
+                  src={player.image}
+                  alt={player.player}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  onError={(e) => { e.target.src = getTeamLogo(player.team) }}
+                />
+              </div>
+
+              {/* Player Info */}
+              <h3 className="text-white font-semibold text-xs truncate text-center mb-0.5">{player.player}</h3>
+              <p className="text-slate-400 text-[10px] text-center mb-2 truncate">{player.team}</p>
+
+              {/* Assists Badge */}
+              <div className="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-md px-2 py-1 text-center">
+                <span className="text-cyan-400 font-bold text-xs">{player.assists}</span>
+                <span className="text-cyan-500/70 text-[10px] ml-1">Assists</span>
+              </div>
+
+              {/* League Tag */}
+              <div className="mt-2 text-center">
+                <span className="text-slate-500 text-[9px] uppercase tracking-wider">{player.league}</span>
+              </div>
             </div>
-          )
-        })}
+          ))}
+        </div>
+      </div>
+
+      {/* Season Predictions */}
+      <div className="mb-6">
+        <h2 className="text-sm font-bold text-white mb-3 uppercase tracking-wider flex items-center gap-2">
+          <TrendingUp className="w-4 h-4 text-purple-500" />
+          Season Predictions
+        </h2>
+        <div className="grid grid-cols-4 gap-3">
+          {seasonPredictions.map((pred, idx) => (
+            <div key={idx} className="group relative bg-gradient-to-br from-purple-900/30 via-purple-800/20 to-slate-900/50 backdrop-blur-sm border border-purple-500/20 rounded-lg p-3 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/10 transition-all duration-300 cursor-pointer overflow-hidden">
+              {/* Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+              <div className="relative">
+                {/* Header */}
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-purple-400 text-[10px] font-bold uppercase tracking-wider">{pred.title}</span>
+                  <span className="bg-purple-500/20 text-purple-300 text-[10px] font-bold px-2 py-0.5 rounded-full border border-purple-500/30">{pred.probability}</span>
+                </div>
+
+                {/* Player/Team Name */}
+                <h3 className="text-white font-bold text-sm mb-1 truncate">{pred.player}</h3>
+
+                {/* Subtitle */}
+                <p className="text-slate-400 text-[10px] truncate">{pred.subtitle}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Hot Predictions */}
+      <div className="mb-6">
+        <h2 className="text-sm font-bold text-white mb-3 uppercase tracking-wider flex items-center gap-2">
+          <Flame className="w-4 h-4 text-orange-500" />
+          Hot Predictions
+        </h2>
+        <div className="grid grid-cols-4 gap-3">
+          {hotPredictions.map((pred, idx) => (
+            <div key={idx} className="group relative bg-gradient-to-br from-orange-900/30 via-red-900/20 to-slate-900/50 backdrop-blur-sm border border-orange-500/20 rounded-lg p-3 hover:border-orange-500/50 hover:shadow-lg hover:shadow-orange-500/10 transition-all duration-300 cursor-pointer overflow-hidden">
+              {/* Animated Glow */}
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+              <div className="relative">
+                {/* Icon and Percentage */}
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-xl group-hover:scale-110 transition-transform duration-300">{pred.icon}</span>
+                    <span className="text-orange-400 font-bold text-base">{pred.percentage}%</span>
+                  </div>
+                  <div className="w-8 h-1 bg-gradient-to-r from-orange-500/50 to-transparent rounded-full"></div>
+                </div>
+
+                {/* Prediction Title */}
+                <p className="text-white text-xs font-semibold mb-1 truncate">{pred.title}</p>
+
+                {/* Match */}
+                <p className="text-slate-400 text-[10px] truncate">{pred.match}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Main Content Grid */}
@@ -122,26 +262,6 @@ export default function Dashboard() {
               </div>
             ))}
           </div>
-        </div>
-      </div>
-
-      {/* Hot Predictions */}
-      <div className="mt-12">
-        <h2 className="text-lg font-bold text-white mb-6 uppercase tracking-wider flex items-center gap-2">
-          <Flame className="w-5 h-5 text-purple-400" />
-          Hot Predictions
-        </h2>
-        <div className="grid grid-cols-4 gap-4">
-          {hotPredictions.map((pred, idx) => (
-            <div key={idx} className="bg-gradient-to-br from-purple-900 to-purple-800 border border-purple-700 rounded-lg p-4">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-2xl">{pred.icon}</span>
-                <span className="text-purple-400 font-bold text-lg">{pred.percentage}%</span>
-              </div>
-              <p className="text-white text-sm font-semibold mb-1">{pred.title}</p>
-              <p className="text-slate-400 text-xs">{pred.match}</p>
-            </div>
-          ))}
         </div>
       </div>
     </div>
