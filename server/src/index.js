@@ -5,6 +5,8 @@ import dotenv from 'dotenv'
 import authRoutes from './routes/auth.js'
 import matchesRoutes from './routes/matches.js'
 import adminRoutes from './routes/admin.js'
+import newsRoutes from './routes/news.js'
+import playersRoutes from './routes/players.js'
 
 dotenv.config()
 
@@ -38,6 +40,8 @@ app.get('/api', (req, res) => {
 app.use('/auth', authRoutes)
 app.use('/api/matches', matchesRoutes)
 app.use('/api/admin', adminRoutes)
+app.use('/api/news', newsRoutes)
+app.use('/api/players', playersRoutes)
 
 // 404 Handler
 app.use((req, res) => {

@@ -6,16 +6,24 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
+    "seed:players": "node src/scripts/seedDirect.js",
+    "migrate:players": "node src/scripts/migratePlayerStats.js",
+    "remove:duplicates": "node src/scripts/removeDuplicates.js",
+    "add:players": "node src/scripts/addMorePlayers.js && npm run seed:players",
+    "check:stats": "node src/scripts/checkPlayerStats.js",
+    "fix:schema": "node src/scripts/fixSchema.js",
+    "test:players": "node src/scripts/testPlayers.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "express": "^4.18.2",
-    "mongoose": "^8.0.0",
-    "dotenv": "^16.3.1",
-    "cors": "^2.8.5",
-    "jsonwebtoken": "^9.0.2",
+    "axios": "^1.6.0",
     "bcryptjs": "^2.4.3",
-    "axios": "^1.6.0"
+    "cheerio": "^1.1.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"

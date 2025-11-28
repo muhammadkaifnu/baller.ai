@@ -8,6 +8,7 @@ from scraper import scrape_fixtures_espn, scrape_player_stats, scrape_team_stats
 from database import db_manager
 from predictor import predict_match_outcome, predict_season_standings, predict_player_performance, get_hot_predictions
 from model import predict_match_winner, predict_multiple_matches, get_team_strength_analysis, get_head_to_head_prediction
+from player_scraper import search_players, get_player_details, get_player_statistics
 
 load_dotenv()
 
@@ -219,6 +220,47 @@ async def get_matches(limit: int = 50):
             "count": 0,
             "matches": []
         }
+
+
+@app.get("/api/players/search")
+async def search_players_endpoint(query: str):
+    """
+    Search for players by name.
+    
+    Args:
+        query: Player name to search for
+    
+    Returns:
+        list: List of matching players
+    """
+    try:
+        results = search_players(query)
+        return {"success": True, "count": len(results), "data": results}
+    except Exception as e:
+        logger.error(f"Error searching players: {e}")
+        return {"success": False, "error": str(e)}
+
+
+@app.get("/api/players/{player_id}")
+async def get_player_details_endpoint(player_id: str):
+    """
+    Get comprehensive details for a specific player.
+    
+    Args:
+        player_id: Unique player identifier
+    
+    Returns:
+        dict: Complete player profile
+    """
+    try:
+        details = get_player_details(player_id)
+        if details:
+            return {"success": True, "data": details}
+        else:
+            return {"success": False, "error": "Player not found"}
+    except Exception as e:
+        logger.error(f"Error fetching player details: {e}")
+        return {"success": False, "error": str(e)}
 
 
 @app.get("/api/debug/db-status")

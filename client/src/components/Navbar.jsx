@@ -8,7 +8,7 @@ export default function Navbar() {
     const { user, logout } = useAuth()
 
     const navItems = [
-        { icon: Home, label: 'Dashboard', path: '/dashboard' },
+        { icon: Home, label: 'Home', path: '/home' },
         { icon: Calendar, label: 'Matches', path: '/matches' },
         { icon: Search, label: 'Scout Hub', path: '/scout' },
         { icon: TrendingUp, label: 'Season Predictor', path: '/predictor' },
@@ -26,7 +26,7 @@ export default function Navbar() {
             {/* Left Section - Logo & Navigation */}
             <div className="flex items-center gap-8">
                 {/* Logo */}
-                <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate('/dashboard')}>
+                <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate('/home')}>
                     <div className="w-10 h-10 bg-cyan-500 rounded-lg flex items-center justify-center">
                         <TrendingUp className="w-6 h-6 text-slate-900" />
                     </div>

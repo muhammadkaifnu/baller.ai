@@ -1,13 +1,14 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from './context/AuthContext'
 import Navbar from './components/Navbar'
-import Dashboard from './pages/Dashboard'
+import Home from './pages/Home'
 import Matches from './pages/Matches'
 import Scout from './pages/Scout'
 import Predictor from './pages/Predictor'
 import Profile from './pages/Profile'
 import Login from './pages/Login'
 import LandingPage from './pages/LandingPage'
+import NewsArticle from './pages/NewsArticle'
 import './App.css'
 
 function ProtectedLayout({ children }) {
@@ -27,13 +28,15 @@ function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
-      <Route path="/login" element={!token ? <Login /> : <Navigate to="/dashboard" />} />
+      <Route path="/login" element={!token ? <Login /> : <Navigate to="/home" />} />
 
-      <Route path="/dashboard" element={token ? <ProtectedLayout><Dashboard /></ProtectedLayout> : <Navigate to="/login" />} />
+      <Route path="/home" element={token ? <ProtectedLayout><Home /></ProtectedLayout> : <Navigate to="/login" />} />
+      <Route path="/dashboard" element={<Navigate to="/home" replace />} />
       <Route path="/matches" element={token ? <ProtectedLayout><Matches /></ProtectedLayout> : <Navigate to="/login" />} />
       <Route path="/scout" element={token ? <ProtectedLayout><Scout /></ProtectedLayout> : <Navigate to="/login" />} />
       <Route path="/predictor" element={token ? <ProtectedLayout><Predictor /></ProtectedLayout> : <Navigate to="/login" />} />
       <Route path="/profile" element={token ? <ProtectedLayout><Profile /></ProtectedLayout> : <Navigate to="/login" />} />
+      <Route path="/news/:id" element={token ? <ProtectedLayout><NewsArticle /></ProtectedLayout> : <Navigate to="/login" />} />
 
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>

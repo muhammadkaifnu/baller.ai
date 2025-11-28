@@ -1,0 +1,2347 @@
+[
+  {
+    "player_id": "haaland_erling",
+    "basic_info": {
+      "name": "Erling Haaland",
+      "full_name": "Erling Braut Haaland",
+      "age": 24,
+      "date_of_birth": "2000-07-21",
+      "nationality": "Norway",
+      "position": "ST",
+      "preferred_foot": "Left",
+      "height": "194 cm",
+      "weight": "88 kg",
+      "image": "https://resources.premierleague.com/premierleague/photos/players/250x250/p223094.png"
+    },
+    "current_club": {
+      "name": "Manchester City",
+      "position": "Striker",
+      "jersey_number": 9,
+      "joined_date": "2022-07-01",
+      "contract_until": "2027-06-30",
+      "market_value": "€180M"
+    },
+    "fifa_ratings": {
+      "overall": 91,
+      "potential": 94,
+      "pace": 89,
+      "shooting": 94,
+      "passing": 71,
+      "dribbling": 81,
+      "defending": 45,
+      "physical": 88
+    },
+    "season_stats": {
+      "season": "2024/25",
+      "appearances": 15,
+      "goals": 21,
+      "assists": 3,
+      "minutes_played": 1350,
+      "goals_per_90": 1.4,
+      "assists_per_90": 0.2,
+      "yellow_cards": 2,
+      "red_cards": 0
+    },
+    "advanced_stats": {
+      "xG": 18.5,
+      "xA": 2.8,
+      "pass_completion": 78.5,
+      "key_passes_per_90": 0.8,
+      "dribbles_per_90": 1.2,
+      "tackles_per_90": 0.3,
+      "interceptions_per_90": 0.2,
+      "aerial_duels_won": 65.2
+    },
+    "playing_style": "A clinical finisher with exceptional pace and positioning.",
+    "strengths": [
+      "Finishing",
+      "Pace",
+      "Positioning"
+    ],
+    "weaknesses": [
+      "Passing Range"
+    ],
+    "recent_matches": [
+      {
+        "date": "2024-11-23",
+        "opponent": "Tottenham",
+        "result": "W 3-0",
+        "minutes": 90,
+        "goals": 2,
+        "assists": 0,
+        "rating": 9.2
+      }
+    ],
+    "transfer_history": [
+      {
+        "date": "2022-07-01",
+        "from": "Borussia Dortmund",
+        "to": "Manchester City",
+        "fee": "€60M",
+        "type": "Transfer"
+      }
+    ],
+    "trophies": [
+      {
+        "title": "Premier League",
+        "season": "2023/24",
+        "competition": "League"
+      }
+    ]
+  },
+  {
+    "player_id": "ronaldo_cristiano",
+    "basic_info": {
+      "name": "Cristiano Ronaldo",
+      "full_name": "Cristiano Ronaldo dos Santos Aveiro",
+      "age": 39,
+      "date_of_birth": "1985-02-05",
+      "nationality": "Portugal",
+      "position": "ST",
+      "preferred_foot": "Right",
+      "height": "187 cm",
+      "weight": "83 kg",
+      "image": "https://b.fssta.com/uploads/application/soccer/headshots/885.vresize.350.350.medium.14.png"
+    },
+    "current_club": {
+      "name": "Al Nassr",
+      "position": "Forward",
+      "jersey_number": 7,
+      "joined_date": "2023-01-01",
+      "contract_until": "2025-06-30",
+      "market_value": "€15M"
+    },
+    "fifa_ratings": {
+      "overall": 87,
+      "potential": 87,
+      "pace": 81,
+      "shooting": 92,
+      "passing": 78,
+      "dribbling": 85,
+      "defending": 34,
+      "physical": 75
+    },
+    "season_stats": {
+      "season": "2024/25",
+      "appearances": 14,
+      "goals": 16,
+      "assists": 3,
+      "minutes_played": 1260,
+      "goals_per_90": 1.14,
+      "assists_per_90": 0.21,
+      "yellow_cards": 2,
+      "red_cards": 0
+    },
+    "advanced_stats": {
+      "xG": 14.2,
+      "xA": 2.5,
+      "pass_completion": 81.2,
+      "key_passes_per_90": 1.2,
+      "dribbles_per_90": 1.8,
+      "tackles_per_90": 0.4,
+      "interceptions_per_90": 0.2,
+      "aerial_duels_won": 68.5
+    },
+    "playing_style": "A legendary goal scorer with incredible athleticism.",
+    "strengths": [
+      "Finishing",
+      "Heading",
+      "Positioning"
+    ],
+    "weaknesses": [
+      "Pace Decline"
+    ],
+    "recent_matches": [
+      {
+        "date": "2024-11-22",
+        "opponent": "Al Hilal",
+        "result": "W 3-1",
+        "minutes": 90,
+        "goals": 2,
+        "assists": 0,
+        "rating": 9
+      }
+    ],
+    "transfer_history": [
+      {
+        "date": "2023-01-01",
+        "from": "Manchester United",
+        "to": "Al Nassr",
+        "fee": "Free",
+        "type": "Free Transfer"
+      }
+    ],
+    "trophies": [
+      {
+        "title": "UEFA Champions League",
+        "season": "2017/18",
+        "competition": "European"
+      }
+    ]
+  },
+  {
+    "player_id": "messi_lionel",
+    "basic_info": {
+      "name": "Lionel Messi",
+      "full_name": "Lionel Andrés Messi",
+      "age": 37,
+      "date_of_birth": "1987-06-24",
+      "nationality": "Argentina",
+      "position": "RW",
+      "preferred_foot": "Left",
+      "height": "170 cm",
+      "weight": "72 kg",
+      "image": "https://b.fssta.com/uploads/application/soccer/headshots/1078.vresize.350.350.medium.14.png"
+    },
+    "current_club": {
+      "name": "Inter Miami",
+      "position": "Forward",
+      "jersey_number": 10,
+      "joined_date": "2023-07-15",
+      "contract_until": "2025-12-31",
+      "market_value": "€25M"
+    },
+    "fifa_ratings": {
+      "overall": 90,
+      "potential": 90,
+      "pace": 80,
+      "shooting": 89,
+      "passing": 91,
+      "dribbling": 94,
+      "defending": 35,
+      "physical": 68
+    },
+    "season_stats": {
+      "season": "2024",
+      "appearances": 19,
+      "goals": 20,
+      "assists": 16,
+      "minutes_played": 1710,
+      "goals_per_90": 1.05,
+      "assists_per_90": 0.84,
+      "yellow_cards": 1,
+      "red_cards": 0
+    },
+    "advanced_stats": {
+      "xG": 17.8,
+      "xA": 14.2,
+      "pass_completion": 87.5,
+      "key_passes_per_90": 3.2,
+      "dribbles_per_90": 4.1,
+      "tackles_per_90": 0.6,
+      "interceptions_per_90": 0.4,
+      "aerial_duels_won": 38.2
+    },
+    "playing_style": "The greatest playmaker and dribbler of all time.",
+    "strengths": [
+      "Dribbling",
+      "Passing",
+      "Vision"
+    ],
+    "weaknesses": [
+      "Physical Strength"
+    ],
+    "recent_matches": [
+      {
+        "date": "2024-11-09",
+        "opponent": "Atlanta United",
+        "result": "W 3-2",
+        "minutes": 90,
+        "goals": 1,
+        "assists": 2,
+        "rating": 9.5
+      }
+    ],
+    "transfer_history": [
+      {
+        "date": "2023-07-15",
+        "from": "Paris Saint-Germain",
+        "to": "Inter Miami",
+        "fee": "Free",
+        "type": "Free Transfer"
+      }
+    ],
+    "trophies": [
+      {
+        "title": "FIFA World Cup",
+        "season": "2022",
+        "competition": "International"
+      }
+    ]
+  },
+  {
+    "player_id": "bellingham_jude",
+    "basic_info": {
+      "name": "Jude Bellingham",
+      "full_name": "Jude Victor William Bellingham",
+      "age": 21,
+      "date_of_birth": "2003-06-29",
+      "nationality": "England",
+      "position": "CM",
+      "preferred_foot": "Right",
+      "height": "186 cm",
+      "weight": "75 kg",
+      "image": "https://b.fssta.com/uploads/application/soccer/headshots/71310.vresize.350.350.medium.14.png"
+    },
+    "current_club": {
+      "name": "Real Madrid",
+      "position": "Midfielder",
+      "jersey_number": 5,
+      "joined_date": "2023-07-01",
+      "contract_until": "2029-06-30",
+      "market_value": "€180M"
+    },
+    "fifa_ratings": {
+      "overall": 90,
+      "potential": 94,
+      "pace": 78,
+      "shooting": 82,
+      "passing": 84,
+      "dribbling": 86,
+      "defending": 78,
+      "physical": 82
+    },
+    "season_stats": {
+      "season": "2024/25",
+      "appearances": 16,
+      "goals": 8,
+      "assists": 5,
+      "minutes_played": 1440,
+      "goals_per_90": 0.5,
+      "assists_per_90": 0.31,
+      "yellow_cards": 3,
+      "red_cards": 0
+    },
+    "advanced_stats": {
+      "xG": 6.8,
+      "xA": 4.2,
+      "pass_completion": 88.5,
+      "key_passes_per_90": 2.1,
+      "dribbles_per_90": 2.8,
+      "tackles_per_90": 2.5,
+      "interceptions_per_90": 1.2,
+      "aerial_duels_won": 58.3
+    },
+    "playing_style": "A complete midfielder with exceptional technical ability.",
+    "strengths": [
+      "Box-to-Box",
+      "Vision",
+      "Shooting"
+    ],
+    "weaknesses": [
+      "Discipline"
+    ],
+    "recent_matches": [
+      {
+        "date": "2024-11-24",
+        "opponent": "Leganes",
+        "result": "W 3-0",
+        "minutes": 90,
+        "goals": 1,
+        "assists": 1,
+        "rating": 8.5
+      }
+    ],
+    "transfer_history": [
+      {
+        "date": "2023-07-01",
+        "from": "Borussia Dortmund",
+        "to": "Real Madrid",
+        "fee": "€103M",
+        "type": "Transfer"
+      }
+    ],
+    "trophies": [
+      {
+        "title": "La Liga",
+        "season": "2023/24",
+        "competition": "League"
+      }
+    ]
+  },
+  {
+    "player_id": "mbappe_kylian",
+    "basic_info": {
+      "name": "Kylian Mbappé",
+      "full_name": "Kylian Mbappé Lottin",
+      "age": 25,
+      "date_of_birth": "1998-12-20",
+      "nationality": "France",
+      "position": "LW",
+      "preferred_foot": "Right",
+      "height": "178 cm",
+      "weight": "73 kg",
+      "image": "https://b.fssta.com/uploads/application/soccer/headshots/101537.vresize.350.350.medium.14.png"
+    },
+    "current_club": {
+      "name": "Real Madrid",
+      "position": "Forward",
+      "jersey_number": 9,
+      "joined_date": "2024-07-01",
+      "contract_until": "2029-06-30",
+      "market_value": "€180M"
+    },
+    "fifa_ratings": {
+      "overall": 92,
+      "potential": 95,
+      "pace": 97,
+      "shooting": 91,
+      "passing": 82,
+      "dribbling": 93,
+      "defending": 39,
+      "physical": 78
+    },
+    "season_stats": {
+      "season": "2024/25",
+      "appearances": 17,
+      "goals": 12,
+      "assists": 4,
+      "minutes_played": 1530,
+      "goals_per_90": 0.71,
+      "assists_per_90": 0.24,
+      "yellow_cards": 1,
+      "red_cards": 0
+    },
+    "advanced_stats": {
+      "xG": 11.2,
+      "xA": 3.8,
+      "pass_completion": 82.3,
+      "key_passes_per_90": 1.8,
+      "dribbles_per_90": 3.5,
+      "tackles_per_90": 0.5,
+      "interceptions_per_90": 0.3,
+      "aerial_duels_won": 42.1
+    },
+    "playing_style": "One of the fastest players in world football.",
+    "strengths": [
+      "Pace",
+      "Dribbling",
+      "Finishing"
+    ],
+    "weaknesses": [
+      "Aerial Ability"
+    ],
+    "recent_matches": [
+      {
+        "date": "2024-11-24",
+        "opponent": "Leganes",
+        "result": "W 3-0",
+        "minutes": 90,
+        "goals": 1,
+        "assists": 0,
+        "rating": 8
+      }
+    ],
+    "transfer_history": [
+      {
+        "date": "2024-07-01",
+        "from": "Paris Saint-Germain",
+        "to": "Real Madrid",
+        "fee": "Free",
+        "type": "Free Transfer"
+      }
+    ],
+    "trophies": [
+      {
+        "title": "FIFA World Cup",
+        "season": "2018",
+        "competition": "International"
+      }
+    ]
+  },
+  {
+    "player_id": "salah_mohamed",
+    "basic_info": {
+      "name": "Mohamed Salah",
+      "full_name": "Mohamed Salah Hamed Mahrous Ghaly",
+      "age": 32,
+      "date_of_birth": "1992-06-15",
+      "nationality": "Egypt",
+      "position": "RW",
+      "preferred_foot": "Left",
+      "height": "175 cm",
+      "weight": "71 kg",
+      "image": "https://resources.premierleague.com/premierleague/photos/players/250x250/p118748.png"
+    },
+    "current_club": {
+      "name": "Liverpool",
+      "position": "Forward",
+      "jersey_number": 11,
+      "joined_date": "2017-07-01",
+      "contract_until": "2025-06-30",
+      "market_value": "€65M"
+    },
+    "fifa_ratings": {
+      "overall": 89,
+      "potential": 89,
+      "pace": 90,
+      "shooting": 87,
+      "passing": 82,
+      "dribbling": 90,
+      "defending": 45,
+      "physical": 75
+    },
+    "season_stats": {
+      "season": "2024/25",
+      "appearances": 17,
+      "goals": 13,
+      "assists": 9,
+      "minutes_played": 1530,
+      "goals_per_90": 0.76,
+      "assists_per_90": 0.53,
+      "yellow_cards": 1,
+      "red_cards": 0
+    },
+    "advanced_stats": {
+      "xG": 11.5,
+      "xA": 7.8,
+      "pass_completion": 84.2,
+      "key_passes_per_90": 2.4,
+      "dribbles_per_90": 2.9,
+      "tackles_per_90": 0.8,
+      "interceptions_per_90": 0.5,
+      "aerial_duels_won": 45.3
+    },
+    "playing_style": "A prolific goal scorer with exceptional pace.",
+    "strengths": [
+      "Pace",
+      "Finishing",
+      "Dribbling"
+    ],
+    "weaknesses": [
+      "Physical Strength"
+    ],
+    "recent_matches": [
+      {
+        "date": "2024-11-24",
+        "opponent": "Southampton",
+        "result": "W 3-2",
+        "minutes": 90,
+        "goals": 2,
+        "assists": 1,
+        "rating": 9
+      }
+    ],
+    "transfer_history": [
+      {
+        "date": "2017-07-01",
+        "from": "AS Roma",
+        "to": "Liverpool",
+        "fee": "€42M",
+        "type": "Transfer"
+      }
+    ],
+    "trophies": [
+      {
+        "title": "Premier League",
+        "season": "2019/20",
+        "competition": "League"
+      }
+    ]
+  },
+  {
+    "player_id": "debruyne_kevin",
+    "basic_info": {
+      "name": "Kevin De Bruyne",
+      "full_name": "Kevin De Bruyne",
+      "age": 33,
+      "date_of_birth": "1991-06-28",
+      "nationality": "Belgium",
+      "position": "CAM",
+      "preferred_foot": "Right",
+      "height": "181 cm",
+      "weight": "70 kg",
+      "image": "https://resources.premierleague.com/premierleague/photos/players/250x250/p61366.png"
+    },
+    "current_club": {
+      "name": "Manchester City",
+      "position": "Midfielder",
+      "jersey_number": 17,
+      "joined_date": "2015-08-30",
+      "contract_until": "2025-06-30",
+      "market_value": "€50M"
+    },
+    "fifa_ratings": {
+      "overall": 91,
+      "potential": 91,
+      "pace": 76,
+      "shooting": 86,
+      "passing": 93,
+      "dribbling": 88,
+      "defending": 64,
+      "physical": 78
+    },
+    "season_stats": {
+      "season": "2024/25",
+      "appearances": 12,
+      "goals": 3,
+      "assists": 7,
+      "minutes_played": 1080,
+      "goals_per_90": 0.25,
+      "assists_per_90": 0.58,
+      "yellow_cards": 2,
+      "red_cards": 0
+    },
+    "advanced_stats": {
+      "xG": 2.8,
+      "xA": 6.5,
+      "pass_completion": 89.8,
+      "key_passes_per_90": 3.5,
+      "dribbles_per_90": 1.8,
+      "tackles_per_90": 1.2,
+      "interceptions_per_90": 0.8,
+      "aerial_duels_won": 52.1
+    },
+    "playing_style": "One of the best playmakers in world football.",
+    "strengths": [
+      "Passing",
+      "Vision",
+      "Crossing"
+    ],
+    "weaknesses": [
+      "Pace"
+    ],
+    "recent_matches": [
+      {
+        "date": "2024-11-23",
+        "opponent": "Tottenham",
+        "result": "W 3-0",
+        "minutes": 90,
+        "goals": 0,
+        "assists": 2,
+        "rating": 8.5
+      }
+    ],
+    "transfer_history": [
+      {
+        "date": "2015-08-30",
+        "from": "VfL Wolfsburg",
+        "to": "Manchester City",
+        "fee": "€76M",
+        "type": "Transfer"
+      }
+    ],
+    "trophies": [
+      {
+        "title": "Premier League",
+        "season": "2023/24",
+        "competition": "League"
+      }
+    ]
+  },
+  {
+    "player_id": "vinicius_junior",
+    "basic_info": {
+      "name": "Vinícius Júnior",
+      "full_name": "Vinícius José Paixão de Oliveira Júnior",
+      "age": 24,
+      "date_of_birth": "2000-07-12",
+      "nationality": "Brazil",
+      "position": "LW",
+      "preferred_foot": "Right",
+      "height": "176 cm",
+      "weight": "73 kg",
+      "image": "https://b.fssta.com/uploads/application/soccer/headshots/68822.vresize.350.350.medium.14.png"
+    },
+    "current_club": {
+      "name": "Real Madrid",
+      "position": "Forward",
+      "jersey_number": 7,
+      "joined_date": "2018-07-01",
+      "contract_until": "2027-06-30",
+      "market_value": "€150M"
+    },
+    "fifa_ratings": {
+      "overall": 89,
+      "potential": 93,
+      "pace": 95,
+      "shooting": 83,
+      "passing": 79,
+      "dribbling": 92,
+      "defending": 29,
+      "physical": 68
+    },
+    "season_stats": {
+      "season": "2024/25",
+      "appearances": 18,
+      "goals": 10,
+      "assists": 8,
+      "minutes_played": 1620,
+      "goals_per_90": 0.56,
+      "assists_per_90": 0.44,
+      "yellow_cards": 4,
+      "red_cards": 0
+    },
+    "advanced_stats": {
+      "xG": 9.2,
+      "xA": 7.1,
+      "pass_completion": 81.5,
+      "key_passes_per_90": 2.3,
+      "dribbles_per_90": 4.8,
+      "tackles_per_90": 0.7,
+      "interceptions_per_90": 0.4,
+      "aerial_duels_won": 35.2
+    },
+    "playing_style": "Electric winger with incredible dribbling skills.",
+    "strengths": [
+      "Pace",
+      "Dribbling",
+      "Flair"
+    ],
+    "weaknesses": [
+      "Finishing Consistency"
+    ],
+    "recent_matches": [
+      {
+        "date": "2024-11-24",
+        "opponent": "Leganes",
+        "result": "W 3-0",
+        "minutes": 90,
+        "goals": 1,
+        "assists": 1,
+        "rating": 8.8
+      }
+    ],
+    "transfer_history": [
+      {
+        "date": "2018-07-01",
+        "from": "Flamengo",
+        "to": "Real Madrid",
+        "fee": "€45M",
+        "type": "Transfer"
+      }
+    ],
+    "trophies": [
+      {
+        "title": "UEFA Champions League",
+        "season": "2023/24",
+        "competition": "European"
+      }
+    ]
+  },
+  {
+    "player_id": "kane_harry",
+    "basic_info": {
+      "name": "Harry Kane",
+      "full_name": "Harry Edward Kane",
+      "age": 31,
+      "date_of_birth": "1993-07-28",
+      "nationality": "England",
+      "position": "ST",
+      "preferred_foot": "Right",
+      "height": "188 cm",
+      "weight": "86 kg",
+      "image": "https://b.fssta.com/uploads/application/soccer/headshots/40695.vresize.350.350.medium.14.png"
+    },
+    "current_club": {
+      "name": "Bayern Munich",
+      "position": "Striker",
+      "jersey_number": 9,
+      "joined_date": "2023-08-12",
+      "contract_until": "2027-06-30",
+      "market_value": "€100M"
+    },
+    "fifa_ratings": {
+      "overall": 90,
+      "potential": 90,
+      "pace": 70,
+      "shooting": 93,
+      "passing": 84,
+      "dribbling": 82,
+      "defending": 47,
+      "physical": 83
+    },
+    "season_stats": {
+      "season": "2024/25",
+      "appearances": 16,
+      "goals": 18,
+      "assists": 6,
+      "minutes_played": 1440,
+      "goals_per_90": 1.13,
+      "assists_per_90": 0.38,
+      "yellow_cards": 1,
+      "red_cards": 0
+    },
+    "advanced_stats": {
+      "xG": 16.5,
+      "xA": 5.2,
+      "pass_completion": 83.8,
+      "key_passes_per_90": 1.9,
+      "dribbles_per_90": 1.1,
+      "tackles_per_90": 0.4,
+      "interceptions_per_90": 0.3,
+      "aerial_duels_won": 62.8
+    },
+    "playing_style": "Complete striker with excellent finishing and playmaking.",
+    "strengths": [
+      "Finishing",
+      "Passing",
+      "Positioning"
+    ],
+    "weaknesses": [
+      "Pace"
+    ],
+    "recent_matches": [
+      {
+        "date": "2024-11-23",
+        "opponent": "Augsburg",
+        "result": "W 3-0",
+        "minutes": 90,
+        "goals": 2,
+        "assists": 1,
+        "rating": 9.1
+      }
+    ],
+    "transfer_history": [
+      {
+        "date": "2023-08-12",
+        "from": "Tottenham",
+        "to": "Bayern Munich",
+        "fee": "€100M",
+        "type": "Transfer"
+      }
+    ],
+    "trophies": [
+      {
+        "title": "Bundesliga",
+        "season": "2023/24",
+        "competition": "League"
+      }
+    ]
+  },
+  {
+    "player_id": "lewandowski_robert",
+    "basic_info": {
+      "name": "Robert Lewandowski",
+      "full_name": "Robert Lewandowski",
+      "age": 36,
+      "date_of_birth": "1988-08-21",
+      "nationality": "Poland",
+      "position": "ST",
+      "preferred_foot": "Right",
+      "height": "185 cm",
+      "weight": "81 kg",
+      "image": "https://b.fssta.com/uploads/application/soccer/headshots/39902.vresize.350.350.medium.14.png"
+    },
+    "current_club": {
+      "name": "Barcelona",
+      "position": "Striker",
+      "jersey_number": 9,
+      "joined_date": "2022-07-19",
+      "contract_until": "2026-06-30",
+      "market_value": "€15M"
+    },
+    "fifa_ratings": {
+      "overall": 89,
+      "potential": 89,
+      "pace": 78,
+      "shooting": 92,
+      "passing": 79,
+      "dribbling": 86,
+      "defending": 44,
+      "physical": 82
+    },
+    "season_stats": {
+      "season": "2024/25",
+      "appearances": 16,
+      "goals": 19,
+      "assists": 2,
+      "minutes_played": 1440,
+      "goals_per_90": 1.19,
+      "assists_per_90": 0.13,
+      "yellow_cards": 2,
+      "red_cards": 0
+    },
+    "advanced_stats": {
+      "xG": 17.2,
+      "xA": 1.8,
+      "pass_completion": 80.5,
+      "key_passes_per_90": 1.1,
+      "dribbles_per_90": 0.9,
+      "tackles_per_90": 0.3,
+      "interceptions_per_90": 0.2,
+      "aerial_duels_won": 58.9
+    },
+    "playing_style": "Clinical finisher with world-class positioning.",
+    "strengths": [
+      "Finishing",
+      "Positioning",
+      "Aerial"
+    ],
+    "weaknesses": [
+      "Pace Decline"
+    ],
+    "recent_matches": [
+      {
+        "date": "2024-11-23",
+        "opponent": "Celta Vigo",
+        "result": "W 2-2",
+        "minutes": 90,
+        "goals": 2,
+        "assists": 0,
+        "rating": 8.8
+      }
+    ],
+    "transfer_history": [
+      {
+        "date": "2022-07-19",
+        "from": "Bayern Munich",
+        "to": "Barcelona",
+        "fee": "€45M",
+        "type": "Transfer"
+      }
+    ],
+    "trophies": [
+      {
+        "title": "La Liga",
+        "season": "2022/23",
+        "competition": "League"
+      }
+    ]
+  },
+  {
+    "player_id": "saka_bukayo",
+    "basic_info": {
+      "name": "Bukayo Saka",
+      "age": 24,
+      "nationality": "England",
+      "position": "RW",
+      "height": "180 cm",
+      "weight": "75 kg",
+      "image": "https://via.placeholder.com/150?text=Bukayo+Saka"
+    },
+    "current_club": {
+      "name": "Arsenal",
+      "position": "RW",
+      "jersey_number": 10,
+      "market_value": "€50M"
+    },
+    "fifa_ratings": {
+      "overall": 87,
+      "potential": 89,
+      "pace": 80,
+      "shooting": 80,
+      "passing": 80,
+      "dribbling": 80,
+      "defending": 50,
+      "physical": 75
+    },
+    "season_stats": {
+      "season": "2024/25",
+      "appearances": 15,
+      "goals": 8,
+      "assists": 5,
+      "minutes_played": 1350,
+      "goals_per_90": 0.53,
+      "assists_per_90": 0.33,
+      "yellow_cards": 2,
+      "red_cards": 0
+    },
+    "advanced_stats": {
+      "xG": 7.5,
+      "xA": 4.5,
+      "pass_completion": 85,
+      "key_passes_per_90": 2,
+      "dribbles_per_90": 2.5,
+      "tackles_per_90": 1,
+      "interceptions_per_90": 0.5,
+      "aerial_duels_won": 50
+    },
+    "playing_style": "Talented RW with great potential.",
+    "strengths": [
+      "Technical",
+      "Vision",
+      "Pace"
+    ],
+    "weaknesses": [
+      "Consistency"
+    ],
+    "recent_matches": [
+      {
+        "date": "2024-11-23",
+        "opponent": "Test Team",
+        "result": "W 2-1",
+        "minutes": 90,
+        "goals": 1,
+        "assists": 1,
+        "rating": 8
+      }
+    ],
+    "transfer_history": [
+      {
+        "date": "2020-01-01",
+        "from": "Youth Team",
+        "to": "Arsenal",
+        "fee": "€10M",
+        "type": "Transfer"
+      }
+    ],
+    "trophies": [
+      {
+        "title": "League Title",
+        "season": "2023/24",
+        "competition": "League"
+      }
+    ]
+  },
+  {
+    "player_id": "odegaard_martin",
+    "basic_info": {
+      "name": "Martin Ødegaard",
+      "age": 24,
+      "nationality": "Norway",
+      "position": "CAM",
+      "height": "180 cm",
+      "weight": "75 kg",
+      "image": "https://via.placeholder.com/150?text=Martin+Ødegaard"
+    },
+    "current_club": {
+      "name": "Arsenal",
+      "position": "CAM",
+      "jersey_number": 10,
+      "market_value": "€50M"
+    },
+    "fifa_ratings": {
+      "overall": 88,
+      "potential": 90,
+      "pace": 80,
+      "shooting": 80,
+      "passing": 80,
+      "dribbling": 80,
+      "defending": 50,
+      "physical": 75
+    },
+    "season_stats": {
+      "season": "2024/25",
+      "appearances": 15,
+      "goals": 8,
+      "assists": 5,
+      "minutes_played": 1350,
+      "goals_per_90": 0.53,
+      "assists_per_90": 0.33,
+      "yellow_cards": 2,
+      "red_cards": 0
+    },
+    "advanced_stats": {
+      "xG": 7.5,
+      "xA": 4.5,
+      "pass_completion": 85,
+      "key_passes_per_90": 2,
+      "dribbles_per_90": 2.5,
+      "tackles_per_90": 1,
+      "interceptions_per_90": 0.5,
+      "aerial_duels_won": 50
+    },
+    "playing_style": "Talented CAM with great potential.",
+    "strengths": [
+      "Technical",
+      "Vision",
+      "Pace"
+    ],
+    "weaknesses": [
+      "Consistency"
+    ],
+    "recent_matches": [
+      {
+        "date": "2024-11-23",
+        "opponent": "Test Team",
+        "result": "W 2-1",
+        "minutes": 90,
+        "goals": 1,
+        "assists": 1,
+        "rating": 8
+      }
+    ],
+    "transfer_history": [
+      {
+        "date": "2020-01-01",
+        "from": "Youth Team",
+        "to": "Arsenal",
+        "fee": "€10M",
+        "type": "Transfer"
+      }
+    ],
+    "trophies": [
+      {
+        "title": "League Title",
+        "season": "2023/24",
+        "competition": "League"
+      }
+    ]
+  },
+  {
+    "player_id": "rice_declan",
+    "basic_info": {
+      "name": "Declan Rice",
+      "age": 24,
+      "nationality": "England",
+      "position": "CDM",
+      "height": "180 cm",
+      "weight": "75 kg",
+      "image": "https://via.placeholder.com/150?text=Declan+Rice"
+    },
+    "current_club": {
+      "name": "Arsenal",
+      "position": "CDM",
+      "jersey_number": 10,
+      "market_value": "€50M"
+    },
+    "fifa_ratings": {
+      "overall": 87,
+      "potential": 89,
+      "pace": 80,
+      "shooting": 80,
+      "passing": 80,
+      "dribbling": 80,
+      "defending": 50,
+      "physical": 75
+    },
+    "season_stats": {
+      "season": "2024/25",
+      "appearances": 15,
+      "goals": 8,
+      "assists": 5,
+      "minutes_played": 1350,
+      "goals_per_90": 0.53,
+      "assists_per_90": 0.33,
+      "yellow_cards": 2,
+      "red_cards": 0
+    },
+    "advanced_stats": {
+      "xG": 7.5,
+      "xA": 4.5,
+      "pass_completion": 85,
+      "key_passes_per_90": 2,
+      "dribbles_per_90": 2.5,
+      "tackles_per_90": 1,
+      "interceptions_per_90": 0.5,
+      "aerial_duels_won": 50
+    },
+    "playing_style": "Talented CDM with great potential.",
+    "strengths": [
+      "Technical",
+      "Vision",
+      "Pace"
+    ],
+    "weaknesses": [
+      "Consistency"
+    ],
+    "recent_matches": [
+      {
+        "date": "2024-11-23",
+        "opponent": "Test Team",
+        "result": "W 2-1",
+        "minutes": 90,
+        "goals": 1,
+        "assists": 1,
+        "rating": 8
+      }
+    ],
+    "transfer_history": [
+      {
+        "date": "2020-01-01",
+        "from": "Youth Team",
+        "to": "Arsenal",
+        "fee": "€10M",
+        "type": "Transfer"
+      }
+    ],
+    "trophies": [
+      {
+        "title": "League Title",
+        "season": "2023/24",
+        "competition": "League"
+      }
+    ]
+  },
+  {
+    "player_id": "palmer_cole",
+    "basic_info": {
+      "name": "Cole Palmer",
+      "age": 24,
+      "nationality": "England",
+      "position": "CAM",
+      "height": "180 cm",
+      "weight": "75 kg",
+      "image": "https://via.placeholder.com/150?text=Cole+Palmer"
+    },
+    "current_club": {
+      "name": "Chelsea",
+      "position": "CAM",
+      "jersey_number": 10,
+      "market_value": "€50M"
+    },
+    "fifa_ratings": {
+      "overall": 84,
+      "potential": 86,
+      "pace": 80,
+      "shooting": 80,
+      "passing": 80,
+      "dribbling": 80,
+      "defending": 50,
+      "physical": 75
+    },
+    "season_stats": {
+      "season": "2024/25",
+      "appearances": 15,
+      "goals": 8,
+      "assists": 5,
+      "minutes_played": 1350,
+      "goals_per_90": 0.53,
+      "assists_per_90": 0.33,
+      "yellow_cards": 2,
+      "red_cards": 0
+    },
+    "advanced_stats": {
+      "xG": 7.5,
+      "xA": 4.5,
+      "pass_completion": 85,
+      "key_passes_per_90": 2,
+      "dribbles_per_90": 2.5,
+      "tackles_per_90": 1,
+      "interceptions_per_90": 0.5,
+      "aerial_duels_won": 50
+    },
+    "playing_style": "Talented CAM with great potential.",
+    "strengths": [
+      "Technical",
+      "Vision",
+      "Pace"
+    ],
+    "weaknesses": [
+      "Consistency"
+    ],
+    "recent_matches": [
+      {
+        "date": "2024-11-23",
+        "opponent": "Test Team",
+        "result": "W 2-1",
+        "minutes": 90,
+        "goals": 1,
+        "assists": 1,
+        "rating": 8
+      }
+    ],
+    "transfer_history": [
+      {
+        "date": "2020-01-01",
+        "from": "Youth Team",
+        "to": "Chelsea",
+        "fee": "€10M",
+        "type": "Transfer"
+      }
+    ],
+    "trophies": [
+      {
+        "title": "League Title",
+        "season": "2023/24",
+        "competition": "League"
+      }
+    ]
+  },
+  {
+    "player_id": "foden_phil",
+    "basic_info": {
+      "name": "Phil Foden",
+      "age": 24,
+      "nationality": "England",
+      "position": "CAM",
+      "height": "180 cm",
+      "weight": "75 kg",
+      "image": "https://via.placeholder.com/150?text=Phil+Foden"
+    },
+    "current_club": {
+      "name": "Manchester City",
+      "position": "CAM",
+      "jersey_number": 10,
+      "market_value": "€50M"
+    },
+    "fifa_ratings": {
+      "overall": 88,
+      "potential": 90,
+      "pace": 80,
+      "shooting": 80,
+      "passing": 80,
+      "dribbling": 80,
+      "defending": 50,
+      "physical": 75
+    },
+    "season_stats": {
+      "season": "2024/25",
+      "appearances": 15,
+      "goals": 8,
+      "assists": 5,
+      "minutes_played": 1350,
+      "goals_per_90": 0.53,
+      "assists_per_90": 0.33,
+      "yellow_cards": 2,
+      "red_cards": 0
+    },
+    "advanced_stats": {
+      "xG": 7.5,
+      "xA": 4.5,
+      "pass_completion": 85,
+      "key_passes_per_90": 2,
+      "dribbles_per_90": 2.5,
+      "tackles_per_90": 1,
+      "interceptions_per_90": 0.5,
+      "aerial_duels_won": 50
+    },
+    "playing_style": "Talented CAM with great potential.",
+    "strengths": [
+      "Technical",
+      "Vision",
+      "Pace"
+    ],
+    "weaknesses": [
+      "Consistency"
+    ],
+    "recent_matches": [
+      {
+        "date": "2024-11-23",
+        "opponent": "Test Team",
+        "result": "W 2-1",
+        "minutes": 90,
+        "goals": 1,
+        "assists": 1,
+        "rating": 8
+      }
+    ],
+    "transfer_history": [
+      {
+        "date": "2020-01-01",
+        "from": "Youth Team",
+        "to": "Manchester City",
+        "fee": "€10M",
+        "type": "Transfer"
+      }
+    ],
+    "trophies": [
+      {
+        "title": "League Title",
+        "season": "2023/24",
+        "competition": "League"
+      }
+    ]
+  },
+  {
+    "player_id": "rodri",
+    "basic_info": {
+      "name": "Rodri",
+      "age": 24,
+      "nationality": "Spain",
+      "position": "CDM",
+      "height": "180 cm",
+      "weight": "75 kg",
+      "image": "https://via.placeholder.com/150?text=Rodri"
+    },
+    "current_club": {
+      "name": "Manchester City",
+      "position": "CDM",
+      "jersey_number": 10,
+      "market_value": "€50M"
+    },
+    "fifa_ratings": {
+      "overall": 91,
+      "potential": 93,
+      "pace": 80,
+      "shooting": 80,
+      "passing": 80,
+      "dribbling": 80,
+      "defending": 50,
+      "physical": 75
+    },
+    "season_stats": {
+      "season": "2024/25",
+      "appearances": 15,
+      "goals": 8,
+      "assists": 5,
+      "minutes_played": 1350,
+      "goals_per_90": 0.53,
+      "assists_per_90": 0.33,
+      "yellow_cards": 2,
+      "red_cards": 0
+    },
+    "advanced_stats": {
+      "xG": 7.5,
+      "xA": 4.5,
+      "pass_completion": 85,
+      "key_passes_per_90": 2,
+      "dribbles_per_90": 2.5,
+      "tackles_per_90": 1,
+      "interceptions_per_90": 0.5,
+      "aerial_duels_won": 50
+    },
+    "playing_style": "Talented CDM with great potential.",
+    "strengths": [
+      "Technical",
+      "Vision",
+      "Pace"
+    ],
+    "weaknesses": [
+      "Consistency"
+    ],
+    "recent_matches": [
+      {
+        "date": "2024-11-23",
+        "opponent": "Test Team",
+        "result": "W 2-1",
+        "minutes": 90,
+        "goals": 1,
+        "assists": 1,
+        "rating": 8
+      }
+    ],
+    "transfer_history": [
+      {
+        "date": "2020-01-01",
+        "from": "Youth Team",
+        "to": "Manchester City",
+        "fee": "€10M",
+        "type": "Transfer"
+      }
+    ],
+    "trophies": [
+      {
+        "title": "League Title",
+        "season": "2023/24",
+        "competition": "League"
+      }
+    ]
+  },
+  {
+    "player_id": "son_heungmin",
+    "basic_info": {
+      "name": "Son Heung-min",
+      "age": 24,
+      "nationality": "South Korea",
+      "position": "LW",
+      "height": "180 cm",
+      "weight": "75 kg",
+      "image": "https://via.placeholder.com/150?text=Son+Heung-min"
+    },
+    "current_club": {
+      "name": "Tottenham",
+      "position": "LW",
+      "jersey_number": 10,
+      "market_value": "€50M"
+    },
+    "fifa_ratings": {
+      "overall": 89,
+      "potential": 91,
+      "pace": 80,
+      "shooting": 80,
+      "passing": 80,
+      "dribbling": 80,
+      "defending": 50,
+      "physical": 75
+    },
+    "season_stats": {
+      "season": "2024/25",
+      "appearances": 15,
+      "goals": 8,
+      "assists": 5,
+      "minutes_played": 1350,
+      "goals_per_90": 0.53,
+      "assists_per_90": 0.33,
+      "yellow_cards": 2,
+      "red_cards": 0
+    },
+    "advanced_stats": {
+      "xG": 7.5,
+      "xA": 4.5,
+      "pass_completion": 85,
+      "key_passes_per_90": 2,
+      "dribbles_per_90": 2.5,
+      "tackles_per_90": 1,
+      "interceptions_per_90": 0.5,
+      "aerial_duels_won": 50
+    },
+    "playing_style": "Talented LW with great potential.",
+    "strengths": [
+      "Technical",
+      "Vision",
+      "Pace"
+    ],
+    "weaknesses": [
+      "Consistency"
+    ],
+    "recent_matches": [
+      {
+        "date": "2024-11-23",
+        "opponent": "Test Team",
+        "result": "W 2-1",
+        "minutes": 90,
+        "goals": 1,
+        "assists": 1,
+        "rating": 8
+      }
+    ],
+    "transfer_history": [
+      {
+        "date": "2020-01-01",
+        "from": "Youth Team",
+        "to": "Tottenham",
+        "fee": "€10M",
+        "type": "Transfer"
+      }
+    ],
+    "trophies": [
+      {
+        "title": "League Title",
+        "season": "2023/24",
+        "competition": "League"
+      }
+    ]
+  },
+  {
+    "player_id": "pedri",
+    "basic_info": {
+      "name": "Pedri",
+      "age": 24,
+      "nationality": "Spain",
+      "position": "CM",
+      "height": "180 cm",
+      "weight": "75 kg",
+      "image": "https://via.placeholder.com/150?text=Pedri"
+    },
+    "current_club": {
+      "name": "Barcelona",
+      "position": "CM",
+      "jersey_number": 10,
+      "market_value": "€50M"
+    },
+    "fifa_ratings": {
+      "overall": 85,
+      "potential": 87,
+      "pace": 80,
+      "shooting": 80,
+      "passing": 80,
+      "dribbling": 80,
+      "defending": 50,
+      "physical": 75
+    },
+    "season_stats": {
+      "season": "2024/25",
+      "appearances": 15,
+      "goals": 8,
+      "assists": 5,
+      "minutes_played": 1350,
+      "goals_per_90": 0.53,
+      "assists_per_90": 0.33,
+      "yellow_cards": 2,
+      "red_cards": 0
+    },
+    "advanced_stats": {
+      "xG": 7.5,
+      "xA": 4.5,
+      "pass_completion": 85,
+      "key_passes_per_90": 2,
+      "dribbles_per_90": 2.5,
+      "tackles_per_90": 1,
+      "interceptions_per_90": 0.5,
+      "aerial_duels_won": 50
+    },
+    "playing_style": "Talented CM with great potential.",
+    "strengths": [
+      "Technical",
+      "Vision",
+      "Pace"
+    ],
+    "weaknesses": [
+      "Consistency"
+    ],
+    "recent_matches": [
+      {
+        "date": "2024-11-23",
+        "opponent": "Test Team",
+        "result": "W 2-1",
+        "minutes": 90,
+        "goals": 1,
+        "assists": 1,
+        "rating": 8
+      }
+    ],
+    "transfer_history": [
+      {
+        "date": "2020-01-01",
+        "from": "Youth Team",
+        "to": "Barcelona",
+        "fee": "€10M",
+        "type": "Transfer"
+      }
+    ],
+    "trophies": [
+      {
+        "title": "League Title",
+        "season": "2023/24",
+        "competition": "League"
+      }
+    ]
+  },
+  {
+    "player_id": "gavi",
+    "basic_info": {
+      "name": "Gavi",
+      "age": 24,
+      "nationality": "Spain",
+      "position": "CM",
+      "height": "180 cm",
+      "weight": "75 kg",
+      "image": "https://via.placeholder.com/150?text=Gavi"
+    },
+    "current_club": {
+      "name": "Barcelona",
+      "position": "CM",
+      "jersey_number": 10,
+      "market_value": "€50M"
+    },
+    "fifa_ratings": {
+      "overall": 83,
+      "potential": 85,
+      "pace": 80,
+      "shooting": 80,
+      "passing": 80,
+      "dribbling": 80,
+      "defending": 50,
+      "physical": 75
+    },
+    "season_stats": {
+      "season": "2024/25",
+      "appearances": 15,
+      "goals": 8,
+      "assists": 5,
+      "minutes_played": 1350,
+      "goals_per_90": 0.53,
+      "assists_per_90": 0.33,
+      "yellow_cards": 2,
+      "red_cards": 0
+    },
+    "advanced_stats": {
+      "xG": 7.5,
+      "xA": 4.5,
+      "pass_completion": 85,
+      "key_passes_per_90": 2,
+      "dribbles_per_90": 2.5,
+      "tackles_per_90": 1,
+      "interceptions_per_90": 0.5,
+      "aerial_duels_won": 50
+    },
+    "playing_style": "Talented CM with great potential.",
+    "strengths": [
+      "Technical",
+      "Vision",
+      "Pace"
+    ],
+    "weaknesses": [
+      "Consistency"
+    ],
+    "recent_matches": [
+      {
+        "date": "2024-11-23",
+        "opponent": "Test Team",
+        "result": "W 2-1",
+        "minutes": 90,
+        "goals": 1,
+        "assists": 1,
+        "rating": 8
+      }
+    ],
+    "transfer_history": [
+      {
+        "date": "2020-01-01",
+        "from": "Youth Team",
+        "to": "Barcelona",
+        "fee": "€10M",
+        "type": "Transfer"
+      }
+    ],
+    "trophies": [
+      {
+        "title": "League Title",
+        "season": "2023/24",
+        "competition": "League"
+      }
+    ]
+  },
+  {
+    "player_id": "modric_luka",
+    "basic_info": {
+      "name": "Luka Modrić",
+      "age": 24,
+      "nationality": "Croatia",
+      "position": "CM",
+      "height": "180 cm",
+      "weight": "75 kg",
+      "image": "https://via.placeholder.com/150?text=Luka+Modrić"
+    },
+    "current_club": {
+      "name": "Real Madrid",
+      "position": "CM",
+      "jersey_number": 10,
+      "market_value": "€50M"
+    },
+    "fifa_ratings": {
+      "overall": 88,
+      "potential": 90,
+      "pace": 80,
+      "shooting": 80,
+      "passing": 80,
+      "dribbling": 80,
+      "defending": 50,
+      "physical": 75
+    },
+    "season_stats": {
+      "season": "2024/25",
+      "appearances": 15,
+      "goals": 8,
+      "assists": 5,
+      "minutes_played": 1350,
+      "goals_per_90": 0.53,
+      "assists_per_90": 0.33,
+      "yellow_cards": 2,
+      "red_cards": 0
+    },
+    "advanced_stats": {
+      "xG": 7.5,
+      "xA": 4.5,
+      "pass_completion": 85,
+      "key_passes_per_90": 2,
+      "dribbles_per_90": 2.5,
+      "tackles_per_90": 1,
+      "interceptions_per_90": 0.5,
+      "aerial_duels_won": 50
+    },
+    "playing_style": "Talented CM with great potential.",
+    "strengths": [
+      "Technical",
+      "Vision",
+      "Pace"
+    ],
+    "weaknesses": [
+      "Consistency"
+    ],
+    "recent_matches": [
+      {
+        "date": "2024-11-23",
+        "opponent": "Test Team",
+        "result": "W 2-1",
+        "minutes": 90,
+        "goals": 1,
+        "assists": 1,
+        "rating": 8
+      }
+    ],
+    "transfer_history": [
+      {
+        "date": "2020-01-01",
+        "from": "Youth Team",
+        "to": "Real Madrid",
+        "fee": "€10M",
+        "type": "Transfer"
+      }
+    ],
+    "trophies": [
+      {
+        "title": "League Title",
+        "season": "2023/24",
+        "competition": "League"
+      }
+    ]
+  },
+  {
+    "player_id": "valverde_fede",
+    "basic_info": {
+      "name": "Federico Valverde",
+      "age": 24,
+      "nationality": "Uruguay",
+      "position": "CM",
+      "height": "180 cm",
+      "weight": "75 kg",
+      "image": "https://via.placeholder.com/150?text=Federico+Valverde"
+    },
+    "current_club": {
+      "name": "Real Madrid",
+      "position": "CM",
+      "jersey_number": 10,
+      "market_value": "€50M"
+    },
+    "fifa_ratings": {
+      "overall": 87,
+      "potential": 89,
+      "pace": 80,
+      "shooting": 80,
+      "passing": 80,
+      "dribbling": 80,
+      "defending": 50,
+      "physical": 75
+    },
+    "season_stats": {
+      "season": "2024/25",
+      "appearances": 15,
+      "goals": 8,
+      "assists": 5,
+      "minutes_played": 1350,
+      "goals_per_90": 0.53,
+      "assists_per_90": 0.33,
+      "yellow_cards": 2,
+      "red_cards": 0
+    },
+    "advanced_stats": {
+      "xG": 7.5,
+      "xA": 4.5,
+      "pass_completion": 85,
+      "key_passes_per_90": 2,
+      "dribbles_per_90": 2.5,
+      "tackles_per_90": 1,
+      "interceptions_per_90": 0.5,
+      "aerial_duels_won": 50
+    },
+    "playing_style": "Talented CM with great potential.",
+    "strengths": [
+      "Technical",
+      "Vision",
+      "Pace"
+    ],
+    "weaknesses": [
+      "Consistency"
+    ],
+    "recent_matches": [
+      {
+        "date": "2024-11-23",
+        "opponent": "Test Team",
+        "result": "W 2-1",
+        "minutes": 90,
+        "goals": 1,
+        "assists": 1,
+        "rating": 8
+      }
+    ],
+    "transfer_history": [
+      {
+        "date": "2020-01-01",
+        "from": "Youth Team",
+        "to": "Real Madrid",
+        "fee": "€10M",
+        "type": "Transfer"
+      }
+    ],
+    "trophies": [
+      {
+        "title": "League Title",
+        "season": "2023/24",
+        "competition": "League"
+      }
+    ]
+  },
+  {
+    "player_id": "lautaro_martinez",
+    "basic_info": {
+      "name": "Lautaro Martínez",
+      "age": 24,
+      "nationality": "Argentina",
+      "position": "ST",
+      "height": "180 cm",
+      "weight": "75 kg",
+      "image": "https://via.placeholder.com/150?text=Lautaro+Martínez"
+    },
+    "current_club": {
+      "name": "Inter Milan",
+      "position": "ST",
+      "jersey_number": 10,
+      "market_value": "€50M"
+    },
+    "fifa_ratings": {
+      "overall": 88,
+      "potential": 90,
+      "pace": 80,
+      "shooting": 80,
+      "passing": 80,
+      "dribbling": 80,
+      "defending": 50,
+      "physical": 75
+    },
+    "season_stats": {
+      "season": "2024/25",
+      "appearances": 15,
+      "goals": 8,
+      "assists": 5,
+      "minutes_played": 1350,
+      "goals_per_90": 0.53,
+      "assists_per_90": 0.33,
+      "yellow_cards": 2,
+      "red_cards": 0
+    },
+    "advanced_stats": {
+      "xG": 7.5,
+      "xA": 4.5,
+      "pass_completion": 85,
+      "key_passes_per_90": 2,
+      "dribbles_per_90": 2.5,
+      "tackles_per_90": 1,
+      "interceptions_per_90": 0.5,
+      "aerial_duels_won": 50
+    },
+    "playing_style": "Talented ST with great potential.",
+    "strengths": [
+      "Technical",
+      "Vision",
+      "Pace"
+    ],
+    "weaknesses": [
+      "Consistency"
+    ],
+    "recent_matches": [
+      {
+        "date": "2024-11-23",
+        "opponent": "Test Team",
+        "result": "W 2-1",
+        "minutes": 90,
+        "goals": 1,
+        "assists": 1,
+        "rating": 8
+      }
+    ],
+    "transfer_history": [
+      {
+        "date": "2020-01-01",
+        "from": "Youth Team",
+        "to": "Inter Milan",
+        "fee": "€10M",
+        "type": "Transfer"
+      }
+    ],
+    "trophies": [
+      {
+        "title": "League Title",
+        "season": "2023/24",
+        "competition": "League"
+      }
+    ]
+  },
+  {
+    "player_id": "leao_rafael",
+    "basic_info": {
+      "name": "Rafael Leão",
+      "age": 24,
+      "nationality": "Portugal",
+      "position": "LW",
+      "height": "180 cm",
+      "weight": "75 kg",
+      "image": "https://via.placeholder.com/150?text=Rafael+Leão"
+    },
+    "current_club": {
+      "name": "AC Milan",
+      "position": "LW",
+      "jersey_number": 10,
+      "market_value": "€50M"
+    },
+    "fifa_ratings": {
+      "overall": 86,
+      "potential": 88,
+      "pace": 80,
+      "shooting": 80,
+      "passing": 80,
+      "dribbling": 80,
+      "defending": 50,
+      "physical": 75
+    },
+    "season_stats": {
+      "season": "2024/25",
+      "appearances": 15,
+      "goals": 8,
+      "assists": 5,
+      "minutes_played": 1350,
+      "goals_per_90": 0.53,
+      "assists_per_90": 0.33,
+      "yellow_cards": 2,
+      "red_cards": 0
+    },
+    "advanced_stats": {
+      "xG": 7.5,
+      "xA": 4.5,
+      "pass_completion": 85,
+      "key_passes_per_90": 2,
+      "dribbles_per_90": 2.5,
+      "tackles_per_90": 1,
+      "interceptions_per_90": 0.5,
+      "aerial_duels_won": 50
+    },
+    "playing_style": "Talented LW with great potential.",
+    "strengths": [
+      "Technical",
+      "Vision",
+      "Pace"
+    ],
+    "weaknesses": [
+      "Consistency"
+    ],
+    "recent_matches": [
+      {
+        "date": "2024-11-23",
+        "opponent": "Test Team",
+        "result": "W 2-1",
+        "minutes": 90,
+        "goals": 1,
+        "assists": 1,
+        "rating": 8
+      }
+    ],
+    "transfer_history": [
+      {
+        "date": "2020-01-01",
+        "from": "Youth Team",
+        "to": "AC Milan",
+        "fee": "€10M",
+        "type": "Transfer"
+      }
+    ],
+    "trophies": [
+      {
+        "title": "League Title",
+        "season": "2023/24",
+        "competition": "League"
+      }
+    ]
+  },
+  {
+    "player_id": "vlahovic_dusan",
+    "basic_info": {
+      "name": "Dušan Vlahović",
+      "age": 24,
+      "nationality": "Serbia",
+      "position": "ST",
+      "height": "180 cm",
+      "weight": "75 kg",
+      "image": "https://via.placeholder.com/150?text=Dušan+Vlahović"
+    },
+    "current_club": {
+      "name": "Juventus",
+      "position": "ST",
+      "jersey_number": 10,
+      "market_value": "€50M"
+    },
+    "fifa_ratings": {
+      "overall": 85,
+      "potential": 87,
+      "pace": 80,
+      "shooting": 80,
+      "passing": 80,
+      "dribbling": 80,
+      "defending": 50,
+      "physical": 75
+    },
+    "season_stats": {
+      "season": "2024/25",
+      "appearances": 15,
+      "goals": 8,
+      "assists": 5,
+      "minutes_played": 1350,
+      "goals_per_90": 0.53,
+      "assists_per_90": 0.33,
+      "yellow_cards": 2,
+      "red_cards": 0
+    },
+    "advanced_stats": {
+      "xG": 7.5,
+      "xA": 4.5,
+      "pass_completion": 85,
+      "key_passes_per_90": 2,
+      "dribbles_per_90": 2.5,
+      "tackles_per_90": 1,
+      "interceptions_per_90": 0.5,
+      "aerial_duels_won": 50
+    },
+    "playing_style": "Talented ST with great potential.",
+    "strengths": [
+      "Technical",
+      "Vision",
+      "Pace"
+    ],
+    "weaknesses": [
+      "Consistency"
+    ],
+    "recent_matches": [
+      {
+        "date": "2024-11-23",
+        "opponent": "Test Team",
+        "result": "W 2-1",
+        "minutes": 90,
+        "goals": 1,
+        "assists": 1,
+        "rating": 8
+      }
+    ],
+    "transfer_history": [
+      {
+        "date": "2020-01-01",
+        "from": "Youth Team",
+        "to": "Juventus",
+        "fee": "€10M",
+        "type": "Transfer"
+      }
+    ],
+    "trophies": [
+      {
+        "title": "League Title",
+        "season": "2023/24",
+        "competition": "League"
+      }
+    ]
+  },
+  {
+    "player_id": "musiala_jamal",
+    "basic_info": {
+      "name": "Jamal Musiala",
+      "age": 24,
+      "nationality": "Germany",
+      "position": "CAM",
+      "height": "180 cm",
+      "weight": "75 kg",
+      "image": "https://via.placeholder.com/150?text=Jamal+Musiala"
+    },
+    "current_club": {
+      "name": "Bayern Munich",
+      "position": "CAM",
+      "jersey_number": 10,
+      "market_value": "€50M"
+    },
+    "fifa_ratings": {
+      "overall": 86,
+      "potential": 88,
+      "pace": 80,
+      "shooting": 80,
+      "passing": 80,
+      "dribbling": 80,
+      "defending": 50,
+      "physical": 75
+    },
+    "season_stats": {
+      "season": "2024/25",
+      "appearances": 15,
+      "goals": 8,
+      "assists": 5,
+      "minutes_played": 1350,
+      "goals_per_90": 0.53,
+      "assists_per_90": 0.33,
+      "yellow_cards": 2,
+      "red_cards": 0
+    },
+    "advanced_stats": {
+      "xG": 7.5,
+      "xA": 4.5,
+      "pass_completion": 85,
+      "key_passes_per_90": 2,
+      "dribbles_per_90": 2.5,
+      "tackles_per_90": 1,
+      "interceptions_per_90": 0.5,
+      "aerial_duels_won": 50
+    },
+    "playing_style": "Talented CAM with great potential.",
+    "strengths": [
+      "Technical",
+      "Vision",
+      "Pace"
+    ],
+    "weaknesses": [
+      "Consistency"
+    ],
+    "recent_matches": [
+      {
+        "date": "2024-11-23",
+        "opponent": "Test Team",
+        "result": "W 2-1",
+        "minutes": 90,
+        "goals": 1,
+        "assists": 1,
+        "rating": 8
+      }
+    ],
+    "transfer_history": [
+      {
+        "date": "2020-01-01",
+        "from": "Youth Team",
+        "to": "Bayern Munich",
+        "fee": "€10M",
+        "type": "Transfer"
+      }
+    ],
+    "trophies": [
+      {
+        "title": "League Title",
+        "season": "2023/24",
+        "competition": "League"
+      }
+    ]
+  },
+  {
+    "player_id": "sane_leroy",
+    "basic_info": {
+      "name": "Leroy Sané",
+      "age": 24,
+      "nationality": "Germany",
+      "position": "LW",
+      "height": "180 cm",
+      "weight": "75 kg",
+      "image": "https://via.placeholder.com/150?text=Leroy+Sané"
+    },
+    "current_club": {
+      "name": "Bayern Munich",
+      "position": "LW",
+      "jersey_number": 10,
+      "market_value": "€50M"
+    },
+    "fifa_ratings": {
+      "overall": 86,
+      "potential": 88,
+      "pace": 80,
+      "shooting": 80,
+      "passing": 80,
+      "dribbling": 80,
+      "defending": 50,
+      "physical": 75
+    },
+    "season_stats": {
+      "season": "2024/25",
+      "appearances": 15,
+      "goals": 8,
+      "assists": 5,
+      "minutes_played": 1350,
+      "goals_per_90": 0.53,
+      "assists_per_90": 0.33,
+      "yellow_cards": 2,
+      "red_cards": 0
+    },
+    "advanced_stats": {
+      "xG": 7.5,
+      "xA": 4.5,
+      "pass_completion": 85,
+      "key_passes_per_90": 2,
+      "dribbles_per_90": 2.5,
+      "tackles_per_90": 1,
+      "interceptions_per_90": 0.5,
+      "aerial_duels_won": 50
+    },
+    "playing_style": "Talented LW with great potential.",
+    "strengths": [
+      "Technical",
+      "Vision",
+      "Pace"
+    ],
+    "weaknesses": [
+      "Consistency"
+    ],
+    "recent_matches": [
+      {
+        "date": "2024-11-23",
+        "opponent": "Test Team",
+        "result": "W 2-1",
+        "minutes": 90,
+        "goals": 1,
+        "assists": 1,
+        "rating": 8
+      }
+    ],
+    "transfer_history": [
+      {
+        "date": "2020-01-01",
+        "from": "Youth Team",
+        "to": "Bayern Munich",
+        "fee": "€10M",
+        "type": "Transfer"
+      }
+    ],
+    "trophies": [
+      {
+        "title": "League Title",
+        "season": "2023/24",
+        "competition": "League"
+      }
+    ]
+  },
+  {
+    "player_id": "wirtz_florian",
+    "basic_info": {
+      "name": "Florian Wirtz",
+      "age": 24,
+      "nationality": "Germany",
+      "position": "CAM",
+      "height": "180 cm",
+      "weight": "75 kg",
+      "image": "https://via.placeholder.com/150?text=Florian+Wirtz"
+    },
+    "current_club": {
+      "name": "Bayer Leverkusen",
+      "position": "CAM",
+      "jersey_number": 10,
+      "market_value": "€50M"
+    },
+    "fifa_ratings": {
+      "overall": 85,
+      "potential": 87,
+      "pace": 80,
+      "shooting": 80,
+      "passing": 80,
+      "dribbling": 80,
+      "defending": 50,
+      "physical": 75
+    },
+    "season_stats": {
+      "season": "2024/25",
+      "appearances": 15,
+      "goals": 8,
+      "assists": 5,
+      "minutes_played": 1350,
+      "goals_per_90": 0.53,
+      "assists_per_90": 0.33,
+      "yellow_cards": 2,
+      "red_cards": 0
+    },
+    "advanced_stats": {
+      "xG": 7.5,
+      "xA": 4.5,
+      "pass_completion": 85,
+      "key_passes_per_90": 2,
+      "dribbles_per_90": 2.5,
+      "tackles_per_90": 1,
+      "interceptions_per_90": 0.5,
+      "aerial_duels_won": 50
+    },
+    "playing_style": "Talented CAM with great potential.",
+    "strengths": [
+      "Technical",
+      "Vision",
+      "Pace"
+    ],
+    "weaknesses": [
+      "Consistency"
+    ],
+    "recent_matches": [
+      {
+        "date": "2024-11-23",
+        "opponent": "Test Team",
+        "result": "W 2-1",
+        "minutes": 90,
+        "goals": 1,
+        "assists": 1,
+        "rating": 8
+      }
+    ],
+    "transfer_history": [
+      {
+        "date": "2020-01-01",
+        "from": "Youth Team",
+        "to": "Bayer Leverkusen",
+        "fee": "€10M",
+        "type": "Transfer"
+      }
+    ],
+    "trophies": [
+      {
+        "title": "League Title",
+        "season": "2023/24",
+        "competition": "League"
+      }
+    ]
+  }
+]
