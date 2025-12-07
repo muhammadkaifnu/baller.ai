@@ -23,7 +23,19 @@ function ProtectedLayout({ children }) {
 }
 
 function AppRoutes() {
-  const { token } = useAuth()
+  const { token, loading } = useAuth()
+
+  // Show loading screen while validating token
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[#0a1929] flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-[#00ff88] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-[#00ff88] text-lg font-semibold">Loading...</p>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <Routes>

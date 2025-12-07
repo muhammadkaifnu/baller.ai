@@ -2,8 +2,10 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Calendar, Clock, Users, MapPin, Trophy, TrendingUp, ArrowRight, Activity } from 'lucide-react';
 import { getTeamLogo } from '../utils/teamLogos';
+import { useAuth } from '../context/AuthContext';
 
 const LandingPage = () => {
+  const { token, logout } = useAuth();
   const [matches, setMatches] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -12,10 +14,23 @@ const LandingPage = () => {
     const fetchMatches = async () => {
       try {
         const response = await fetch('http://localhost:5001/api/matches?limit=3');
+
+        // If unauthorized, just set empty matches (Landing page doesn't need auth)
+        if (response.status === 401) {
+          setMatches([]);
+          setLoading(false);
+          return;
+        }
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
         const data = await response.json();
         setMatches(data.data?.matches || []);
       } catch (error) {
         console.error('Error fetching matches:', error);
+        setMatches([]); // Set empty array on error
       } finally {
         setLoading(false);
       }
@@ -53,14 +68,28 @@ const LandingPage = () => {
             </span>
           </div>
           <div className="flex items-center gap-4">
-            <Link to="/login" className="text-slate-300 hover:text-white transition font-medium">Sign In</Link>
-            <Link
-              to="/login"
-              state={{ isSignup: true }}
-              className="bg-cyan-500 hover:bg-cyan-400 text-slate-900 px-5 py-2 rounded-full font-bold transition shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:shadow-[0_0_25px_rgba(6,182,212,0.7)]"
-            >
-              Get Started
-            </Link>
+            {token ? (
+              <>
+                <Link to="/home" className="text-slate-300 hover:text-white transition font-medium">Go to Dashboard</Link>
+                <button
+                  onClick={logout}
+                  className="bg-gradient-to-r from-[#00ff88] to-[#39ff14] hover:from-[#39ff14] hover:to-[#ccff00] text-[#050a14] px-6 py-2.5 rounded-xl font-bold transition-all shadow-lg shadow-[#00ff88]/50 hover:shadow-[#00ff88]/70 hover:scale-105"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link to="/login" className="text-slate-300 hover:text-white transition font-medium">Sign In</Link>
+                <Link
+                  to="/login"
+                  state={{ isSignup: true }}
+                  className="bg-gradient-to-r from-[#00ff88] to-[#39ff14] hover:from-[#39ff14] hover:to-[#ccff00] text-[#050a14] px-6 py-2.5 rounded-xl font-bold transition-all shadow-lg shadow-[#00ff88]/50 hover:shadow-[#00ff88]/70 hover:scale-105"
+                >
+                  Get Started
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </nav>

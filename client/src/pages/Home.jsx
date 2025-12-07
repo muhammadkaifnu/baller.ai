@@ -94,27 +94,63 @@ export default function Home() {
     return () => clearInterval(interval)
   }, [])
 
+  const [topScorers, setTopScorers] = useState([])
+  const [topAssisters, setTopAssisters] = useState([])
+  const [statsLoading, setStatsLoading] = useState(true)
+
+  // Fetch top scorers and assisters
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const token = localStorage.getItem('token')
+
+        // Fetch top scorers
+        const scorersResponse = await fetch('http://localhost:5001/api/stats/top-scorers', {
+          headers: { 'Authorization': `Bearer ${token}` }
+        })
+        const scorersData = await scorersResponse.json()
+        if (scorersData.success) {
+          setTopScorers(scorersData.data)
+        }
+
+        // Fetch top assisters
+        const assistersResponse = await fetch('http://localhost:5001/api/stats/top-assisters', {
+          headers: { 'Authorization': `Bearer ${token}` }
+        })
+        const assistersData = await assistersResponse.json()
+        if (assistersData.success) {
+          setTopAssisters(assistersData.data)
+        }
+      } catch (error) {
+        console.error('Error fetching stats:', error)
+        // Fallback to placeholder data
+        setTopScorers([
+          { league: 'Premier League', player: 'Loading...', team: '-', goals: 0, image: 'https://a.espncdn.com/combiner/i?img=/i/headshots/nophoto.png&w=350&h=254' },
+          { league: 'La Liga', player: 'Loading...', team: '-', goals: 0, image: 'https://a.espncdn.com/combiner/i?img=/i/headshots/nophoto.png&w=350&h=254' },
+          { league: 'Bundesliga', player: 'Loading...', team: '-', goals: 0, image: 'https://a.espncdn.com/combiner/i?img=/i/headshots/nophoto.png&w=350&h=254' },
+          { league: 'Serie A', player: 'Loading...', team: '-', goals: 0, image: 'https://a.espncdn.com/combiner/i?img=/i/headshots/nophoto.png&w=350&h=254' },
+          { league: 'Ligue 1', player: 'Loading...', team: '-', goals: 0, image: 'https://a.espncdn.com/combiner/i?img=/i/headshots/nophoto.png&w=350&h=254' },
+        ])
+        setTopAssisters([
+          { league: 'Premier League', player: 'Loading...', team: '-', assists: 0, image: 'https://a.espncdn.com/combiner/i?img=/i/headshots/nophoto.png&w=350&h=254' },
+          { league: 'La Liga', player: 'Loading...', team: '-', assists: 0, image: 'https://a.espncdn.com/combiner/i?img=/i/headshots/nophoto.png&w=350&h=254' },
+          { league: 'Bundesliga', player: 'Loading...', team: '-', assists: 0, image: 'https://a.espncdn.com/combiner/i?img=/i/headshots/nophoto.png&w=350&h=254' },
+          { league: 'Serie A', player: 'Loading...', team: '-', assists: 0, image: 'https://a.espncdn.com/combiner/i?img=/i/headshots/nophoto.png&w=350&h=254' },
+          { league: 'Ligue 1', player: 'Loading...', team: '-', assists: 0, image: 'https://a.espncdn.com/combiner/i?img=/i/headshots/nophoto.png&w=350&h=254' },
+        ])
+      } finally {
+        setStatsLoading(false)
+      }
+    }
+
+    fetchStats()
+  }, [])
+
   const hotPredictions = [
     { icon: '🔥', percentage: 78, title: 'Over 2.5 Goals', match: 'Man City vs Arsenal' },
     { icon: '🔥', percentage: 82, title: 'BTTS Yes', match: 'Liverpool vs Chelsea' },
     { icon: '🔥', percentage: 64, title: 'Away Win', match: 'Tottenham vs Man Utd' },
     { icon: '🔥', percentage: 71, title: 'Under 3.5', match: 'Bayern vs Dortmund' },
-  ]
-
-  const topScorers = [
-    { league: 'Premier League', player: 'Erling Haaland', team: 'Manchester City', goals: 18, image: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p223094.png' },
-    { league: 'La Liga', player: 'Jude Bellingham', team: 'Real Madrid', goals: 14, image: 'https://b.fssta.com/uploads/application/soccer/headshots/71310.vresize.350.350.medium.14.png' },
-    { league: 'Bundesliga', player: 'Harry Kane', team: 'Bayern Munich', goals: 22, image: 'https://b.fssta.com/uploads/application/soccer/headshots/3960.vresize.350.350.medium.14.png' },
-    { league: 'Serie A', player: 'Lautaro Martínez', team: 'Inter Milan', goals: 16, image: 'https://b.fssta.com/uploads/application/soccer/headshots/43089.vresize.350.350.medium.14.png' },
-    { league: 'Ligue 1', player: 'Jonathan David', team: 'Lille', goals: 19, image: 'https://b.fssta.com/uploads/application/soccer/headshots/52084.vresize.350.350.medium.14.png' },
-  ]
-
-  const topAssisters = [
-    { league: 'Premier League', player: 'Mohamed Salah', team: 'Liverpool', assists: 8, image: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p118748.png' },
-    { league: 'La Liga', player: 'Lamine Yamal', team: 'Barcelona', assists: 9, image: 'https://b.fssta.com/uploads/application/soccer/headshots/118223.vresize.350.350.medium.14.png' },
-    { league: 'Bundesliga', player: 'Leroy Sané', team: 'Bayern Munich', assists: 10, image: 'https://b.fssta.com/uploads/application/soccer/headshots/2271.vresize.350.350.medium.14.png' },
-    { league: 'Serie A', player: 'Marcus Thuram', team: 'Inter Milan', assists: 9, image: 'https://b.fssta.com/uploads/application/soccer/headshots/45788.vresize.350.350.medium.14.png' },
-    { league: 'Ligue 1', player: 'Ousmane Dembélé', team: 'Paris Saint-Germain', assists: 8, image: 'https://b.fssta.com/uploads/application/soccer/headshots/33404.vresize.350.350.medium.14.png' },
   ]
 
   const seasonPredictions = [
@@ -128,8 +164,8 @@ export default function Home() {
     <div className="pb-8 px-8">
       {/* Top Goal Scorers */}
       <div className="mb-6">
-        <h2 className="text-sm font-bold text-white mb-3 uppercase tracking-wider flex items-center gap-2">
-          <Trophy className="w-4 h-4 text-yellow-500" />
+        <h2 className="text-xl font-bold bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent mb-4 uppercase tracking-wider flex items-center gap-2">
+          <Trophy className="w-6 h-6 text-yellow-500" />
           Top Goal Scorers
         </h2>
         <div className="grid grid-cols-5 gap-3">
@@ -171,8 +207,8 @@ export default function Home() {
 
       {/* Top Assisters */}
       <div className="mb-6">
-        <h2 className="text-sm font-bold text-white mb-3 uppercase tracking-wider flex items-center gap-2">
-          <Users className="w-4 h-4 text-cyan-500" />
+        <h2 className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4 uppercase tracking-wider flex items-center gap-2">
+          <Users className="w-6 h-6 text-cyan-500" />
           Top Assisters
         </h2>
         <div className="grid grid-cols-5 gap-3">

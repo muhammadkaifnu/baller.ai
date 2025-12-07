@@ -89,11 +89,11 @@ export default function Matches() {
     matches.forEach(match => {
       dateSet.add(getMatchDate(match.date))
     })
-    
+
     // Get dates from 7 days ago to 14 days ahead
     const dates = Array.from(dateSet)
     const today = new Date()
-    
+
     // Add dates even if no matches (for better navigation)
     for (let i = -7; i <= 14; i++) {
       const date = new Date(today)
@@ -103,7 +103,7 @@ export default function Matches() {
         dates.push(dateStr)
       }
     }
-    
+
     return dates.sort()
   }
 
@@ -122,14 +122,14 @@ export default function Matches() {
   useEffect(() => {
     if (allDates.length > 0 && selectedDate) {
       const todayElement = document.getElementById(`date-tab-${selectedDate}`)
-      
+
       if (todayElement) {
         // Use setTimeout to ensure DOM is ready
         setTimeout(() => {
-          todayElement.scrollIntoView({ 
-            behavior: 'auto', 
-            block: 'nearest', 
-            inline: 'center' 
+          todayElement.scrollIntoView({
+            behavior: 'auto',
+            block: 'nearest',
+            inline: 'center'
           })
         }, 150)
       }
@@ -178,27 +178,23 @@ export default function Matches() {
                 key={date}
                 id={`date-tab-${date}`}
                 onClick={() => setSelectedDate(date)}
-                className={`flex flex-col items-center min-w-[90px] px-4 py-3 rounded-xl transition-all whitespace-nowrap snap-center ${
-                  isSelected
-                    ? 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/30 scale-105'
-                    : isToday
+                className={`flex flex-col items-center min-w-[90px] px-4 py-3 rounded-xl transition-all whitespace-nowrap snap-center ${isSelected
+                  ? 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/30 scale-105'
+                  : isToday
                     ? 'bg-slate-700 text-cyan-400 border border-cyan-500/30'
                     : 'bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-slate-200'
-                }`}
+                  }`}
               >
-                <span className={`text-xs font-semibold uppercase tracking-wider mb-1 ${
-                  isSelected ? 'text-white' : isToday ? 'text-cyan-400' : 'text-slate-500'
-                }`}>
+                <span className={`text-xs font-semibold uppercase tracking-wider mb-1 ${isSelected ? 'text-white' : isToday ? 'text-cyan-400' : 'text-slate-500'
+                  }`}>
                   {isToday ? 'Today' : label.includes('Yesterday') ? 'Yesterday' : label.includes('Tomorrow') ? 'Tomorrow' : dayName}
                 </span>
-                <span className={`text-2xl font-bold ${
-                  isSelected ? 'text-white' : isToday ? 'text-cyan-400' : 'text-slate-200'
-                }`}>
+                <span className={`text-2xl font-bold ${isSelected ? 'text-white' : isToday ? 'text-cyan-400' : 'text-slate-200'
+                  }`}>
                   {dayNum}
                 </span>
-                <span className={`text-xs mt-1 ${
-                  isSelected ? 'text-cyan-100' : 'text-slate-500'
-                }`}>
+                <span className={`text-xs mt-1 ${isSelected ? 'text-cyan-100' : 'text-slate-500'
+                  }`}>
                   {matchCount} {matchCount === 1 ? 'match' : 'matches'}
                 </span>
               </button>
@@ -224,19 +220,19 @@ export default function Matches() {
           {/* Group matches by league and prioritize leagues with live matches */}
           {(() => {
             const leagues = ['Premier League', 'La Liga', 'Serie A', 'Bundesliga', 'Ligue 1']
-            
+
             // Create league data with live match count
             const leagueData = leagues.map(leagueName => {
               const leagueMatches = displayMatches.filter(m => m.league === leagueName)
               const liveCount = leagueMatches.filter(m => m.status === 'live').length
-              
+
               return {
                 name: leagueName,
                 matches: leagueMatches,
                 liveCount
               }
             }).filter(league => league.matches.length > 0)
-            
+
             // Sort leagues: leagues with live matches first, then by name
             leagueData.sort((a, b) => {
               if (a.liveCount > 0 && b.liveCount === 0) return -1
@@ -244,20 +240,20 @@ export default function Matches() {
               if (a.liveCount !== b.liveCount) return b.liveCount - a.liveCount
               return 0
             })
-            
+
             return leagueData.map(league => {
               // Sort matches within league: live first, then finished, then scheduled
               const sortedMatches = [...league.matches].sort((a, b) => {
                 const statusOrder = { 'live': 0, 'finished': 1, 'scheduled': 2 }
                 const aOrder = statusOrder[a.status] ?? 3
                 const bOrder = statusOrder[b.status] ?? 3
-                
+
                 if (aOrder !== bOrder) return aOrder - bOrder
-                
+
                 // Within same status, sort by time
                 return new Date(a.date) - new Date(b.date)
               })
-              
+
               const hasLive = league.liveCount > 0
 
               return (
@@ -337,11 +333,10 @@ function MatchCard({ match, onClick }) {
 
   return (
     <div
-      className={`bg-slate-800/50 border rounded-xl p-5 hover:bg-slate-800 transition-all cursor-pointer backdrop-blur-sm ${
-        isLive 
-          ? 'border-red-500/50 hover:border-red-500 shadow-lg shadow-red-500/20' 
-          : 'border-slate-700/50 hover:border-cyan-500/50'
-      }`}
+      className={`bg-slate-800/50 border rounded-xl p-5 hover:bg-slate-800 transition-all cursor-pointer backdrop-blur-sm ${isLive
+        ? 'border-red-500/50 hover:border-red-500 shadow-lg shadow-red-500/20'
+        : 'border-slate-700/50 hover:border-cyan-500/50'
+        }`}
       onClick={onClick}
     >
       {/* Header with League and Status/Time */}
